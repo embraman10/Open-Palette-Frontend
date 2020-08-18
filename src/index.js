@@ -1,11 +1,11 @@
 let colorHexes = [];
-let fontFamilies = [];
+let fontFamilies = ["Arial", "Times New Roman", "Verdana", "Helvetica", "Georgia", "Garamond", "Courier", "Impact", "Perpetua", "Cursive"];
 
 
 function main() {
   fetchColors();
   fetchFontColors();
-  // fetchFonts();
+  fetchFonts();
 
 }
 
@@ -47,7 +47,7 @@ function fetchFontColors() {
       });
       //console.log(colorHexes);
       const btn = document.getElementById("font-color-btn");
-      const color = document.querySelector(".color");
+      const fontColor = document.querySelector(".font-color");
       const h2 = document.getElementById("tester")
 
       btn.addEventListener("click", function () {
@@ -55,7 +55,7 @@ function fetchFontColors() {
         // console.log(randomNumber);
         console.log(cb)
         h2.style.color = colorHexes[randomNumber];
-        color.textContent = colorHexes[randomNumber];
+        fontColor.textContent = colorHexes[randomNumber];
       });
 
 
@@ -66,28 +66,30 @@ function fetchFontColors() {
 }
 
 function fetchFonts() {
-  fetch("http://localhost:3000/font_changers")
-    .then((resp) => resp.json())
-    .then((fonts) => {
-      fonts.forEach((font) => {
-        fontFamilies.push(font.fontFamily);
-      });
+  // fetch("http://localhost:3000/font_changers")
+  //   .then((resp) => resp.json())
+  //   .then((fonts) => {
+  //     fonts.forEach((font) => {
+  //       fontFamilies.push(font.fontFamily);
+  //     });
       //console.log(fontFamilies);
-      const btn = document.getElementById("font-btn");
+      const btn = document.getElementById("font-family-btn");
       const font = document.querySelector(".font");
+      const h2 = document.getElementsByClassName("card-inner")
       
       btn.addEventListener("click", function () {
         const randomNumber = getRandomNumber();
         // console.log(randomNumber);
 
-        document.getElementById("fontFamily").style.fontFamily = fontFamilies[randomNumber];
+        h2[0].style.fontFamily = fontFamilies[randomNumber];
+        //console.log(h2[0])
         //font.textContent = fontFamilies[randomNumber];
       });
 
       function getRandomNumber() {
         return Math.floor(Math.random() * fontFamilies.length);
       }
-    });
+    // });
 }
 main();
 
