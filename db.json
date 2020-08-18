@@ -1,0 +1,16 @@
+{
+    "Palettes": [
+        {
+        "id": 1,
+        "background_color": "#d9e1c1",
+        "font_color": "#537e7e",
+        "font_family": "Times New Roman"
+    },
+    {
+        "id": 2,
+        "background_color": "#547174",
+        "font_color": "#f9bc4f",
+        "font_family": "Cursive"
+    }
+] 
+}

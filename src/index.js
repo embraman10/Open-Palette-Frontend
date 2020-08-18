@@ -24,10 +24,12 @@ function fetchColors() {
 
       btn.addEventListener("click", function () {
         const randomNumber = getRandomNumber();
+        const paletteForm = document.getElementById('palette-form')
         // console.log(randomNumber);
-        console.log(cb)
+        //console.log(cb)
         div.style.backgroundColor = colorHexes[randomNumber];
         color.textContent = colorHexes[randomNumber];
+        paletteForm.bgColor.value = colorHexes[randomNumber];
       });
 
       function getRandomNumber() {
@@ -54,8 +56,10 @@ function fetchFontColors() {
         const randomNumber = getRandomNumber();
         // console.log(randomNumber);
         console.log(cb)
+        const paletteForm = document.getElementById('palette-form')
         h2.style.color = colorHexes[randomNumber];
         fontColor.textContent = colorHexes[randomNumber];
+        paletteForm.fontColor.value = colorHexes[randomNumber];
       });
 
 
@@ -80,8 +84,10 @@ function fetchFonts() {
       btn.addEventListener("click", function () {
         const randomNumber = getRandomNumber();
         // console.log(randomNumber);
+        const paletteForm = document.getElementById('palette-form')
 
         h2[0].style.fontFamily = fontFamilies[randomNumber];
+        paletteForm.font.value = fontFamilies[randomNumber];
         //console.log(h2[0])
         //font.textContent = fontFamilies[randomNumber];
       });
