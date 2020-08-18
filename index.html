@@ -6,9 +6,10 @@
         <link rel="stylesheet" href="styles.css">
     </head>
 
+    
 <!-- *********** Top Navbar *********** -->
 <header>
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+<nav class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
     <a class="navbar-brand" href="#">Open Palette</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -43,31 +44,40 @@
 
 
 <!-- *********** Side Navbar *********** -->
-<body class='center'>
-<div class="sidenav">
-    <br><br><br> <br>
-    <button type="button" class="btn btn-outline-primary">Font</button><br><br>
-    <button type="button" class="btn btn-outline-success" font-family="ABeeZee">Font Face</button><br><br>
-    <button type="button" id="btn" class="btn btn-outline-warning">Background</button><br><br>
-    <button type="button" class="btn btn-outline-danger">Border</button><br><br>
+<body>
+<div class="card-deck">
+  <div class="sidenav">
+    <br>
+    <button type="button" id= "font-family-btn" class="btn btn-outline-primary" font-family="Roboto">Font Family</button><br><br>
+    <button type="button" class="btn btn-outline-success" id="font-color-btn">Font Color</button><br><br>
+    <button type="button" id="color-btn" class="btn btn-outline-warning">Background</button><br><br>
+    <button type="button" class="btn btn-outline-danger">Clear</button><br><br>
+    <button type="button" class="btn btn-outline-danger">Clear</button>
+    <br><br>
   </div>
-  
-
 
 <!-- *********** Colorizer Body *********** -->
-<div class="container-fluid">
+  <div class="card-palette p-3 px-md-3">
     <script src="./src/index.js"></script>
+    <div class="card mb-4 shadow-sm">
+      <!-- <div class="card-header">
+        <h4 class="my-0 font-weight-normal">Card Heading</h4>
+      </div> -->
+      <div class="card-body" id="cb">
+        <h2 class="card-inner" id="tester">Tester Here</h2>
+      </div>
+    </div> 
+  </div>
+
 </div>
 
 
-
 <!-- *********** Footer *********** -->
-<footer class="page-footer font-small blue fixed-bottom index-container">
+<footer class="pt-4 my-md-5 pt-md-5 border-top">
     <div class="footer-copyright text-center py-3"> YEET</div>
 
 </footer>
 
 
 </body>
-
 </html>
