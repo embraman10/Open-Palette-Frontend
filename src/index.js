@@ -4,7 +4,9 @@ let fontFamilies = [];
 
 function main() {
   fetchColors();
-  fetchFonts();
+  fetchFontColors();
+  // fetchFonts();
+
 }
 
 function fetchColors() {
@@ -18,13 +20,44 @@ function fetchColors() {
       const btn = document.getElementById("color-btn");
       const color = document.querySelector(".color");
 
+      const div = document.getElementById("cb")
+
       btn.addEventListener("click", function () {
         const randomNumber = getRandomNumber();
         // console.log(randomNumber);
-
-        document.body.style.backgroundColor = colorHexes[randomNumber];
+        console.log(cb)
+        div.style.backgroundColor = colorHexes[randomNumber];
         color.textContent = colorHexes[randomNumber];
       });
+
+      function getRandomNumber() {
+        return Math.floor(Math.random() * colorHexes.length);
+      }
+    });
+}
+
+
+
+function fetchFontColors() {
+  fetch("http://localhost:3000/background_color_changers")
+    .then((resp) => resp.json())
+    .then((colors) => {
+      colors.forEach((color) => {
+        colorHexes.push(color.colorHex);
+      });
+      //console.log(colorHexes);
+      const btn = document.getElementById("font-color-btn");
+      const color = document.querySelector(".color");
+      const h2 = document.getElementById("tester")
+
+      btn.addEventListener("click", function () {
+        const randomNumber = getRandomNumber();
+        // console.log(randomNumber);
+        console.log(cb)
+        h2.style.color = colorHexes[randomNumber];
+        color.textContent = colorHexes[randomNumber];
+      });
+
 
       function getRandomNumber() {
         return Math.floor(Math.random() * colorHexes.length);
@@ -57,3 +90,4 @@ function fetchFonts() {
     });
 }
 main();
+
