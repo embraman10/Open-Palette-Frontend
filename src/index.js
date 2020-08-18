@@ -5,7 +5,7 @@ let fontFamilies = [];
 function main() {
   fetchColors();
   fetchFontColors();
-  // fetchFonts();
+  fetchFonts();
 
 }
 
@@ -65,6 +65,7 @@ function fetchFontColors() {
     });
 }
 
+
 function fetchFonts() {
   fetch("http://localhost:3000/font_changers")
     .then((resp) => resp.json())
@@ -73,14 +74,16 @@ function fetchFonts() {
         fontFamilies.push(font.fontFamily);
       });
       //console.log(fontFamilies);
-      const btn = document.getElementById("font-btn");
+      const btn = document.getElementById("font-family-btn");
       const font = document.querySelector(".font");
+      const h2 = document.getElementById("tester")
       
       btn.addEventListener("click", function () {
         const randomNumber = getRandomNumber();
+        console.log(cb)
         // console.log(randomNumber);
 
-        document.getElementById("fontFamily").style.fontFamily = fontFamilies[randomNumber];
+        h2.style.fontFamily = fontFamilies[randomNumber];
         //font.textContent = fontFamilies[randomNumber];
       });
 
