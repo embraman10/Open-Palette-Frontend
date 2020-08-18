@@ -6,6 +6,7 @@ function main() {
   fetchColors();
   fetchFontColors();
   // fetchFonts();
+
 }
 
 function fetchColors() {
@@ -18,6 +19,7 @@ function fetchColors() {
       //console.log(colorHexes);
       const btn = document.getElementById("color-btn");
       const color = document.querySelector(".color");
+
       const div = document.getElementById("cb")
 
       btn.addEventListener("click", function () {
@@ -56,35 +58,36 @@ function fetchFontColors() {
         color.textContent = colorHexes[randomNumber];
       });
 
+
       function getRandomNumber() {
         return Math.floor(Math.random() * colorHexes.length);
       }
     });
 }
 
-
-// function fetchFonts() {
-//   fetch("http://localhost:3000/font_changers")
-//     .then((resp) => resp.json())
-//     .then((fonts) => {
-//       fonts.forEach((font) => {
-//         fontFamilies.push(font.fontFamily);
-//       });
-//       //console.log(fontFamilies);
-//       const btn = document.getElementById("font-btn");
-//       const font = document.querySelector(".font");
+function fetchFonts() {
+  fetch("http://localhost:3000/font_changers")
+    .then((resp) => resp.json())
+    .then((fonts) => {
+      fonts.forEach((font) => {
+        fontFamilies.push(font.fontFamily);
+      });
+      //console.log(fontFamilies);
+      const btn = document.getElementById("font-btn");
+      const font = document.querySelector(".font");
       
-//       btn.addEventListener("click", function () {
-//         const randomNumber = getRandomNumber();
-//         // console.log(randomNumber);
+      btn.addEventListener("click", function () {
+        const randomNumber = getRandomNumber();
+        // console.log(randomNumber);
 
-//         document.getElementById("fontFamily").style.fontFamily = fontFamilies[randomNumber];
-//         //font.textContent = fontFamilies[randomNumber];
-//       });
+        document.getElementById("fontFamily").style.fontFamily = fontFamilies[randomNumber];
+        //font.textContent = fontFamilies[randomNumber];
+      });
 
-//       function getRandomNumber() {
-//         return Math.floor(Math.random() * fontFamilies.length);
-//       }
-//     });
-// }
+      function getRandomNumber() {
+        return Math.floor(Math.random() * fontFamilies.length);
+      }
+    });
+}
 main();
+
