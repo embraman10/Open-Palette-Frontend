@@ -41,7 +41,7 @@ function fetchColors() {
         // console.log(randomNumber);
         //console.log(cb)
         div.style.backgroundColor = colorHexes[randomNumber];
-        color.textContent = colorHexes[randomNumber];
+        // color.textContent = colorHexes[randomNumber];
         paletteForm.bgColor.value = colorHexes[randomNumber];
       });
 
@@ -76,7 +76,7 @@ function fetchFontColors() {
         console.log(cb);
         const paletteForm = document.getElementById("palette-form");
         h2.style.color = colorHexes[randomNumber];
-        fontColor.textContent = colorHexes[randomNumber];
+        // fontColor.textContent = colorHexes[randomNumber];
         paletteForm.fontColor.value = colorHexes[randomNumber];
       });
 
@@ -129,6 +129,7 @@ function fetchFonts() {
 // }
 
 ///////// ***** Saving Palette ***** /////////
+
 function fetchPalettes() {
   fetch("http://localhost:3000/user_palettes")
     .then(resp => resp.json())
@@ -161,6 +162,7 @@ function renderPalettes(palette) {
 function handleCrud(e) {
   e.preventDefault();
   //console.log(e.target.dataset.id)
+
   if (e.target.id === "edit-btn") {
     console.log("I am this cards specific edit button");
   }

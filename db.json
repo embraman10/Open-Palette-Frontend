@@ -1,12 +1,13 @@
 {
   "Palettes": [
     {
-      "background_color": "#f1cc2b",
-      "font_color": "#c8ccbc",
-      "font_family": "Courier",
-      "id": 1
+      "background_color": "#f9c0ce",
+      "font_color": "#8f9482",
+      "font_family": "Arial",
+      "id": 3
     },
     {
+
       "background_color": "#e0d4e0",
       "font_color": "#c2beb6",
       "font_family": "Impact",
