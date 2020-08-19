@@ -49,7 +49,7 @@
     <button type="button" id= "font-family-btn" class="btn btn-outline-primary" font-family="Roboto">Font Family</button><br><br>
     <button type="button" class="btn btn-outline-success" id="font-color-btn">Font Color</button><br><br>
     <button type="button" id="color-btn" class="btn btn-outline-warning">Background</button><br><br>
-    <button type="button" class="btn btn-outline-danger">Clear</button><br><br>
+    <button type="button" id="save-btn" class="btn btn-outline-success">Save</button><br><br>
     <button type="button" class="btn btn-outline-danger">Clear</button>
     <br><br>
 
@@ -69,8 +69,15 @@
         </div>
         <div>
           <h2> font color : <span class="font-color">#f1f5f8</span></h2>
+
         </div>
       </div>
+      <br>
+      <form id='palette-form' class="padding margin border-round border-grey">
+        <input type="text" name="bgColor" placeholder="Background Color" value="" />
+        <input type="text" name="fontColor" placeholder="Font Color" value="" />
+        <input type="text" name="font" placeholder="Font" value="" />
+      </form>
     </div> 
   </div>
 
@@ -79,15 +86,16 @@
 
 <!-- *********** Footer *********** -->
 <footer class="pt-4 my-md-5 pt-md-5 border-top">
-  <form id='palette-form' class="padding margin border-round border-grey">
-    <input type="text" name="bgColor" placeholder="Background Color" value="" />
-    <input type="text" name="fontColor" placeholder="Font Color" value="" />
-    <input type="text" name="font" placeholder="Font" value="" />
-    <input class="btn btn-outline-primary" font-family="Roboto" type="submit" value="Submit" />
-  </form>
-</div>
-  
-  <div class="footer-copyright text-center py-3"> YEET</div>
+    <h1>Your HTML Styiling Cards!</h1>
+  <div id="show-body">
+
+  </div>
+
+<div class="footer-copyright text-center py-3"> YEET</div>
+
+
+
+
 </footer>
 
 
