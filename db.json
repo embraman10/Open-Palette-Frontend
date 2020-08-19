@@ -1,28 +1,16 @@
 {
   "Palettes": [
     {
-      "background_color": "#4999a1",
-      "font_color": "#f0f00f",
-      "font_family": "Verdana",
+      "background_color": "#f1cc2b",
+      "font_color": "#c8ccbc",
+      "font_family": "Courier",
       "id": 1
     },
     {
-      "background_color": "#ff7034",
-      "font_color": "#dfdde0",
-      "font_family": "Perpetua",
+      "background_color": "#f9d964",
+      "font_color": "#deb59a",
+      "font_family": "Courier",
       "id": 2
-    },
-    {
-      "background_color": "#574a47",
-      "font_color": "#7ac34f",
-      "font_family": "Georgia",
-      "id": 3
-    },
-    {
-      "background_color": "#968678",
-      "font_color": "#e9d2bb",
-      "font_family": "Arial",
-      "id": 4
     }
   ]
 }

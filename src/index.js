@@ -20,8 +20,9 @@ function main() {
   fetchFontColors();
   fetchFonts();
   fetchPalettes();
-  clearPalette();
+  // clearPalette();
 }
+
 
 
 
@@ -100,6 +101,7 @@ function fetchFonts() {
     console.log(cb);
     // console.log(randomNumber);
     const paletteForm = document.getElementById("palette-form");
+    
 
     h2[0].style.fontFamily = fontFamilies[randomNumber];
     paletteForm.font.value = fontFamilies[randomNumber];
@@ -117,14 +119,14 @@ function fetchFonts() {
 
 
 ///////// ***** Clear Palette ***** /////////
-function clearPalette(){
-  const cardForm = document.getElementById("palette-form");
-  const cardBody = document.getElementById("cb");
-  const clearBtn = document.getElementById("clr-btn");
-  clearBtn.addEventListener("click", function(){
-    cardForm.reset()
-  });
-}
+// function clearPalette(){
+//   const cardForm = document.getElementById("palette-form");
+//   const cardBody = document.getElementById("cb");
+//   const clearBtn = document.getElementById("clr-btn");
+//   clearBtn.addEventListener("click", function(){
+//     cardForm.reset()
+//   });
+// }
 
 
 
@@ -139,8 +141,8 @@ function fetchPalettes() {
 
 
 function renderPalletes(pallete) {
-  const footer = document.getElementById("show-body");
-  footer.innerHTML += `     <div class="saved-card-body" data-id="${pallete.id}" style="background-color: ${pallete.background_color}">
+  const showPanel = document.getElementById("show-body");
+  showPanel.innerHTML += `     <div class="saved-card-body" data-id="${pallete.id}" style="background-color: ${pallete.background_color}">
                             <h2 data-id="${pallete.id}" style="font-family: ${pallete.font_family}; color: ${pallete.font_color}">Tester Here</h2>
                             <div>
                             <h2> background color : <span class="color">${pallete.background_color}</span></h2>
@@ -151,13 +153,50 @@ function renderPalletes(pallete) {
                             <div>
                             <h2> font : <span class="font-family">${pallete.font_family}</span></h2>
                             </div>
+                            <button type="button" data-id="${pallete.id}" id="edit-btn" class="btn btn-outline-warning">Edit this Card</button><br><br>
+                            <button type="button" data-id="${pallete.id}" id="save-btn" class="btn btn-outline-success">Save My Card</button><br><br>
+                            <button type="button" data-id="${pallete.id}" id="delete-btn" class="btn btn-outline-danger">Delete</button>
                             </div>`;
+  const footer = document.getElementById("temp-id")
+  footer.addEventListener('click', handleCrud)
 }
+
+
+function handleCrud(e){
+  e.preventDefault();
+  //console.log(e.target.dataset.id)
+  if (e.target.id === "edit-btn"){
+    console.log('I am this cards specific edit button');
+  } else if (e.target.id === "save-btn"){
+    console.log('I am this cards specific save button')
+  } else if (e.target.id === "delete-btn"){
+    console.log('I am this cards specific delete button')
+    deletePalette(e)
+  }
+
+function deletePalette(e){
+  const paletteId = e.target.dataset.id
+  fetch(`http://localhost:4000/Palettes/${paletteId}`, { method: 'DELETE' })
+  .then(resp => resp.json())
+  .then(data => {
+    if (data.error) {
+      alert('ooops somethign went wrong')
+    } else {
+      e.target.parentNode.remove()
+    }
+})
+}
+}
+
+
+
+
+
 
 function handleSave(e){
   e.preventDefault();
   if (e.target.id === "save-btn"){
-    console.log('I am the save button')
+    //console.log('I am the save button')
     submitPalette(e)
   }
 }
