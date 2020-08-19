@@ -124,7 +124,6 @@ function clearPalette(){
   clearBtn.addEventListener("click", function(){
     cardForm.reset()
   });
-
 }
 
 
