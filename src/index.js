@@ -13,18 +13,12 @@ let fontFamilies = [
 ];
 document.addEventListener("click", handleSave);
 
-
-
 function main() {
   fetchColors();
   fetchFontColors();
   fetchFonts();
   fetchPalettes();
-  // clearPalette();
 }
-
-
-
 
 ///////// ***** Change Background Color ***** /////////
 function fetchColors() {
@@ -37,6 +31,7 @@ function fetchColors() {
       //console.log(colorHexes);
       const btn = document.getElementById("color-btn");
       const color = document.querySelector(".color");
+      const clearBtn = document.getElementById("clr-btn")
 
       const div = document.getElementById("cb");
 
@@ -53,10 +48,13 @@ function fetchColors() {
       function getRandomNumber() {
         return Math.floor(Math.random() * colorHexes.length);
       }
+      clearBtn.addEventListener("click", function(){
+        const paletteForm = document.getElementById("palette-form");
+        div.style.backgroundColor = ""
+        paletteForm.reset()
+      })
     });
 }
-
-
 
 ///////// ***** Change Font Color ***** /////////
 function fetchFontColors() {
@@ -70,6 +68,7 @@ function fetchFontColors() {
       const btn = document.getElementById("font-color-btn");
       const fontColor = document.querySelector(".font-color");
       const h2 = document.getElementById("tester");
+      const clearBtn = document.getElementById("clr-btn")
 
       btn.addEventListener("click", function () {
         const randomNumber = getRandomNumber();
@@ -84,24 +83,25 @@ function fetchFontColors() {
       function getRandomNumber() {
         return Math.floor(Math.random() * colorHexes.length);
       }
+
+      clearBtn.addEventListener("click", function(){
+        h2.style.color = ""
+      })
     });
 }
 
-
-
 ///////// ***** Change Font Family ***** /////////
 function fetchFonts() {
-
   const btn = document.getElementById("font-family-btn");
   const font = document.querySelector(".font");
   const h2 = document.getElementsByClassName("card-inner");
+  const clearBtn = document.getElementById("clr-btn")
 
   btn.addEventListener("click", function () {
     const randomNumber = getRandomNumber();
     console.log(cb);
     // console.log(randomNumber);
     const paletteForm = document.getElementById("palette-form");
-    
 
     h2[0].style.fontFamily = fontFamilies[randomNumber];
     paletteForm.font.value = fontFamilies[randomNumber];
@@ -113,144 +113,118 @@ function fetchFonts() {
   function getRandomNumber() {
     return Math.floor(Math.random() * fontFamilies.length);
   }
-  
-}
-
-
-
-/////// ***** Clear Demo Palette ***** /////////
-function clearPalette(){
-  const cardForm = document.getElementById("palette-form");
-  const cardBody = document.getElementById("cb");
-  const btn = document.getElementById("color-btn")
-
-  const test = fetchColors()
-  const clearBtn = document.getElementById("clr-btn");
   clearBtn.addEventListener("click", function(){
-    cardForm.reset()
-    cardBody.removeEventListener("click", fetchColors, false)
-  });
-  // cardBody.removeEventListener("")
+    h2[0].style.fontFamily = ""
+  })
 }
 
+///////// ***** Clear Palette ***** /////////
+// function clearPalette(){
+//   const cardForm = document.getElementById("palette-form");
+//   const cardBody = document.getElementById("cb");
+//   const clearBtn = document.getElementById("clr-btn");
+//   clearBtn.addEventListener("click", function(){
+//     cardForm.reset()
+//   });
+// }
 
+///////// ***** Saving Palette ***** /////////
 
-///////// ***** Show Palettes ***** /////////
 function fetchPalettes() {
-  fetch("http://localhost:4000/Palettes")
-    .then((resp) => resp.json())
-    .then((palletes) => {
-      palletes.forEach(renderPalletes);
+  fetch("http://localhost:3000/user_palettes")
+    .then(resp => resp.json())
+    .then((palettes) => {
+      palettes.forEach(renderPalettes);
     });
 }
 
-
-function renderPalletes(pallete) {
+function renderPalettes(palette) {
   const showPanel = document.getElementById("show-body");
-  showPanel.innerHTML += `     <div class="saved-card-body" data-id="${pallete.id}" style="background-color: ${pallete.background_color}">
-                            <h2 data-id="${pallete.id}" style="font-family: ${pallete.font_family}; color: ${pallete.font_color}">Tester Here</h2>
+  //console.log(palette.user.id)
+  showPanel.innerHTML += `  <div class="saved-card-body" data-id="${palette.id}" style="background-color: ${palette.background_color}">
+                            <h2 data-id="${palette.id}" style="font-family: ${palette.font_family}; color: ${palette.font_color}">${palette.user.name}</h2>
                             <div>
-                            <h2> background color : <span class="color">${pallete.background_color}</span></h2>
+                            <h2> background color : <span class="color">${palette.background_color}</span></h2>
                             </div>
                             <div>
-                            <h2> font color : <span class="font-color">${pallete.font_color}</span></h2>
+                            <h2> font color : <span class="font-color">${palette.font_color}</span></h2>
                             </div>
                             <div>
-                            <h2> font : <span class="font-family">${pallete.font_family}</span></h2>
+                            <h2> font : <span class="font-family">${palette.font_family}</span></h2>
                             </div>
-                            <button type="button" data-id="${pallete.id}" id="edit-btn" class="btn btn-outline-warning">Edit this Card</button><br><br>
-                            <button type="button" data-id="${pallete.id}" id="save-btn" class="btn btn-outline-success">Save My Card</button><br><br>
-                            <button type="button" data-id="${pallete.id}" id="delete-btn" class="btn btn-outline-danger">Delete</button>
+                            <button type="button" data-id="${palette.id}" id="edit-btn" class="btn btn-outline-warning">Edit this Card</button><br><br>
+                            <button type="button" data-id="${palette.id}" id="delete-btn" class="btn btn-outline-danger">Delete</button>
                             </div>`;
-  const footer = document.getElementById("temp-id")
-  footer.addEventListener('click', handleCrud)
+  const footer = document.getElementById("temp-id");
+  footer.addEventListener("click", handleCrud);
 }
 
-
-function handleCrud(e){
+function handleCrud(e) {
   e.preventDefault();
   //console.log(e.target.dataset.id)
-  if (e.target.id === "edit-btn"){
-    editPalette(e)
-  } else if (e.target.id === "save-btn"){
-    console.log('I am this cards specific save button')
-  } else if (e.target.id === "delete-btn"){
-    deletePalette(e)
+
+  if (e.target.id === "edit-btn") {
+    console.log("I am this cards specific edit button");
+  }
+  // else if (e.target.id === "save-btn"){
+  //   console.log('I am this cards specific save button')
+  //   savePalette(e)
+  // }
+  else if (e.target.id === "delete-btn") {
+    console.log("I am this cards specific delete button");
+    deletePalette(e);
   }
 
+  // function savePalette(e){
 
+  // }
 
-function deletePalette(e){
-  const paletteId = e.target.dataset.id
-  fetch(`http://localhost:4000/Palettes/${paletteId}`, { method: 'DELETE' })
-  .then(resp => resp.json())
-  .then(data => {
-    if (data.error) {
-      alert('Something is amiss!')
-    } else {
-      e.target.parentNode.remove()
-    }
-})
+  function deletePalette(e) {
+    const paletteId = e.target.dataset.id;
+    fetch(`http://localhost:4000/UserPalett/${paletteId}`, { method: "DELETE" })
+      .then((resp) => resp.json())
+      .then((data) => {
+        if (data.error) {
+          alert("ooops somethign went wrong");
+        } else {
+          e.target.parentNode.remove();
+        }
+      });
+  }
 }
-}
 
-
-// function editPalette(e){
-//   const paletteId = document.querySelector("pallete.id")
-//   let updatePalette = {
-//     background_color: paletteId.bgColor.value,
-//     font_color: paletteId.fontColor.value,
-//     font_family: paletteId.font.value
-//   }
-//   //console.log(updatePalette)
-//   fetch("http://localhost:4000/Palettes", {
-//     method: 'PATCH',
-//     headers: {"content-type": 'application/json',
-//             accepts: 'application/json'
-//   },
-//   body: JSON.stringify(updatePalette)
-
-//   })
-//   .then(res => res.json())
-//   .then(pallete => {
-//     renderPalletes(pallete)
-//   })
-// }
-
-
-
-function handleSave(e){
+function handleSave(e) {
   e.preventDefault();
-  if (e.target.id === "save-btn"){
+  if (e.target.id === "save-btn") {
     //console.log('I am the save button')
-    submitPalette(e)
+    submitPalette(e);
   }
 }
 
-function submitPalette(e){
+
+
+function submitPalette(e) {
   const paletteForm = document.getElementById("palette-form");
-  let newPallete = {
+  let newPalette = {
     background_color: paletteForm.bgColor.value,
     font_color: paletteForm.fontColor.value,
-    font_family: paletteForm.font.value
-  }
-  //console.log(newPallete)
-  fetch("http://localhost:4000/Palettes", {
-    method: 'POST',
-    headers: {"content-type": 'application/json',
-            accepts: 'application/json'
-  },
-  body: JSON.stringify(newPallete)
+    font_family: paletteForm.font.value,
+    user_id: 24
+  };
+  console.log(newPalette)
+  fetch("http://localhost:3000/user_palettes", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(newPalette),
+  })
+    .then(res => res.json())
+    .then((palette) => {
+      renderPalettes(palette);
+    });
 
-  })
-  .then(res => res.json())
-  .then(pallete => {
-    renderPalletes(pallete)
-  })
 }
-
-
-
 
 ///////// ***** Initializer ***** /////////
 main();
