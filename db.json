@@ -7,10 +7,49 @@
       "id": 1
     },
     {
-      "background_color": "#f9d964",
-      "font_color": "#deb59a",
-      "font_family": "Courier",
-      "id": 2
+      "background_color": "#e0d4e0",
+      "font_color": "#c2beb6",
+      "font_family": "Impact",
+      "id": 8
+    },
+    {
+      "background_color": "#e0d4e0",
+      "font_color": "#c2beb6",
+      "font_family": "Impact",
+      "id": 9
+    },
+    {
+      "background_color": "#c7d368",
+      "font_color": "#fcf3c6",
+      "font_family": "Perpetua",
+      "id": 10
+    },
+    {
+      "background_color": "#cfbea5",
+      "font_color": "#b1b5a0",
+      "font_family": "Verdana",
+      "id": 11
+    },
+    {
+      "background_color": "#d86773",
+      "font_color": "#009288",
+      "font_family": "Garamond",
+      "user_id": 21,
+      "id": 12
+    },
+    {
+      "background_color": "#bdaa6f",
+      "font_color": "",
+      "font_family": "Verdana",
+      "user_id": 21,
+      "id": 13
+    },
+    {
+      "background_color": "#bdaa6f",
+      "font_color": "",
+      "font_family": "Verdana",
+      "user_id": 21,
+      "id": 14
     }
   ]
 }
