@@ -50,14 +50,13 @@
     <button type="button" class="btn btn-outline-success" id="font-color-btn">Font Color</button><br><br>
     <button type="button" id="color-btn" class="btn btn-outline-warning">Background</button><br><br>
     <button type="button" id="save-btn" class="btn btn-outline-success">Save</button><br><br>
-    <button type="button" class="btn btn-outline-danger">Clear</button>
+    <button type="button" id="clr-btn" class="btn btn-outline-danger">Clear</button>
     <br><br>
 
   </div>
 
-<!-- *********** Colorizer Body *********** -->
+<!-- *********** Palette Body *********** -->
   <div class="card-palette p-3 px-md-3">
-    <script src="./src/index.js"></script>
     <div class="card mb-4 shadow-sm">
       <!-- <div class="card-header">
         <h4 class="my-0 font-weight-normal">Card Heading</h4>
@@ -84,6 +83,29 @@
 </div>
 
 
+
+<!-- *********** Login Form *********** -->
+<div class="modal fade" role="dialog" id="loginModal">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <h3 class="modal-title">Open Palette Login</h3>
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+    </div>
+    <div class="modal-body">
+      <form id="login" class="form-group">
+        <input type="text" name="username" class="form-control" placeholder="Username" value="">
+        <input type="password" name="password" class="form-control" placeholder="Password" value="">
+        <button id="login" type="submit" value="submit" class="btn btn-success">Sign In</button>
+      </form>
+    </div>
+    <div class="modal-footer">
+    </div>
+  </div>
+</div>
+
+
+
+
 <!-- *********** Footer *********** -->
 <footer class="pt-4 my-md-5 pt-md-5 border-top">
     <h1>Your HTML Styiling Cards!</h1>
@@ -97,7 +119,7 @@
 
 
 </footer>
-
-
+<script src="./src/login.js"></script>
+<script src="./src/index.js" defer></script>
 </body>
 </html>

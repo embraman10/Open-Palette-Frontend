@@ -20,9 +20,12 @@ function main() {
   fetchFontColors();
   fetchFonts();
   fetchPalettes();
-
+  clearPalette();
 }
 
+
+
+///////// ***** Change Background Color ***** /////////
 function fetchColors() {
   fetch("http://localhost:3000/background_color_changers")
     .then((resp) => resp.json())
@@ -52,6 +55,9 @@ function fetchColors() {
     });
 }
 
+
+
+///////// ***** Change Font Color ***** /////////
 function fetchFontColors() {
   fetch("http://localhost:3000/background_color_changers")
     .then((resp) => resp.json())
@@ -80,6 +86,9 @@ function fetchFontColors() {
     });
 }
 
+
+
+///////// ***** Change Font Family ***** /////////
 function fetchFonts() {
 
   const btn = document.getElementById("font-family-btn");
@@ -104,6 +113,23 @@ function fetchFonts() {
   }
   
 }
+
+
+
+///////// ***** Clear Palette ***** /////////
+function clearPalette(){
+  const cardForm = document.getElementById("palette-form");
+  const cardBody = document.getElementById("cb");
+  const clearBtn = document.getElementById("clr-btn");
+  clearBtn.addEventListener("click", function(){
+    cardForm.reset()
+  });
+
+}
+
+
+
+///////// ***** Saving Palette ***** /////////
 function fetchPalettes() {
   fetch("http://localhost:4000/Palettes")
     .then((resp) => resp.json())
@@ -111,6 +137,7 @@ function fetchPalettes() {
       palletes.forEach(renderPalletes);
     });
 }
+
 
 function renderPalletes(pallete) {
   const footer = document.getElementById("show-body");
@@ -148,14 +175,18 @@ function submitPalette(e){
     method: 'POST',
     headers: {"content-type": 'application/json',
             accepts: 'application/json'
-},
-body: JSON.stringify(newPallete)
+  },
+  body: JSON.stringify(newPallete)
 
-})
-.then(res => res.json())
-.then(pallete => {
-  renderPalletes(pallete)
-})
+  })
+  .then(res => res.json())
+  .then(pallete => {
+    renderPalletes(pallete)
+  })
 }
 
+
+
+
+///////// ***** Initializer ***** /////////
 main();
