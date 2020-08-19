@@ -46,7 +46,7 @@ function fetchColors() {
         // console.log(randomNumber);
         //console.log(cb)
         div.style.backgroundColor = colorHexes[randomNumber];
-        color.textContent = colorHexes[randomNumber];
+        // color.textContent = colorHexes[randomNumber];
         paletteForm.bgColor.value = colorHexes[randomNumber];
       });
 
@@ -77,7 +77,7 @@ function fetchFontColors() {
         console.log(cb);
         const paletteForm = document.getElementById("palette-form");
         h2.style.color = colorHexes[randomNumber];
-        fontColor.textContent = colorHexes[randomNumber];
+        // fontColor.textContent = colorHexes[randomNumber];
         paletteForm.fontColor.value = colorHexes[randomNumber];
       });
 
@@ -118,7 +118,7 @@ function fetchFonts() {
 
 
 
-/////// ***** Clear Palette ***** /////////
+/////// ***** Clear Demo Palette ***** /////////
 function clearPalette(){
   const cardForm = document.getElementById("palette-form");
   const cardBody = document.getElementById("cb");
@@ -195,27 +195,27 @@ function deletePalette(e){
 }
 
 
-function editPalette(e){
-  const paletteId = document.querySelector("pallete.id")
-  let updatePalette = {
-    background_color: paletteId.bgColor.value,
-    font_color: paletteId.fontColor.value,
-    font_family: paletteId.font.value
-  }
-  //console.log(updatePalette)
-  fetch("http://localhost:4000/Palettes", {
-    method: 'PATCH',
-    headers: {"content-type": 'application/json',
-            accepts: 'application/json'
-  },
-  body: JSON.stringify(updatePalette)
+// function editPalette(e){
+//   const paletteId = document.querySelector("pallete.id")
+//   let updatePalette = {
+//     background_color: paletteId.bgColor.value,
+//     font_color: paletteId.fontColor.value,
+//     font_family: paletteId.font.value
+//   }
+//   //console.log(updatePalette)
+//   fetch("http://localhost:4000/Palettes", {
+//     method: 'PATCH',
+//     headers: {"content-type": 'application/json',
+//             accepts: 'application/json'
+//   },
+//   body: JSON.stringify(updatePalette)
 
-  })
-  .then(res => res.json())
-  .then(pallete => {
-    renderPalletes(pallete)
-  })
-}
+//   })
+//   .then(res => res.json())
+//   .then(pallete => {
+//     renderPalletes(pallete)
+//   })
+// }
 
 
 
