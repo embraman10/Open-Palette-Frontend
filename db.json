@@ -1,16 +1,16 @@
 {
   "Palettes": [
     {
-      "background_color": "#f1cc2b",
-      "font_color": "#c8ccbc",
-      "font_family": "Courier",
-      "id": 1
+      "background_color": "#f9c0ce",
+      "font_color": "#8f9482",
+      "font_family": "Arial",
+      "id": 3
     },
     {
-      "background_color": "#f9d964",
-      "font_color": "#deb59a",
-      "font_family": "Courier",
-      "id": 2
+      "background_color": "",
+      "font_color": "",
+      "font_family": "",
+      "id": 4
     }
   ]
 }

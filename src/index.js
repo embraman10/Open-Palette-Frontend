@@ -46,7 +46,7 @@ function fetchColors() {
         // console.log(randomNumber);
         //console.log(cb)
         div.style.backgroundColor = colorHexes[randomNumber];
-        color.textContent = colorHexes[randomNumber];
+        // color.textContent = colorHexes[randomNumber];
         paletteForm.bgColor.value = colorHexes[randomNumber];
       });
 
@@ -77,7 +77,7 @@ function fetchFontColors() {
         console.log(cb);
         const paletteForm = document.getElementById("palette-form");
         h2.style.color = colorHexes[randomNumber];
-        fontColor.textContent = colorHexes[randomNumber];
+        // fontColor.textContent = colorHexes[randomNumber];
         paletteForm.fontColor.value = colorHexes[randomNumber];
       });
 
@@ -118,19 +118,24 @@ function fetchFonts() {
 
 
 
-///////// ***** Clear Palette ***** /////////
-// function clearPalette(){
-//   const cardForm = document.getElementById("palette-form");
-//   const cardBody = document.getElementById("cb");
-//   const clearBtn = document.getElementById("clr-btn");
-//   clearBtn.addEventListener("click", function(){
-//     cardForm.reset()
-//   });
-// }
+/////// ***** Clear Demo Palette ***** /////////
+function clearPalette(){
+  const cardForm = document.getElementById("palette-form");
+  const cardBody = document.getElementById("cb");
+  const btn = document.getElementById("color-btn")
+
+  const test = fetchColors()
+  const clearBtn = document.getElementById("clr-btn");
+  clearBtn.addEventListener("click", function(){
+    cardForm.reset()
+    cardBody.removeEventListener("click", fetchColors, false)
+  });
+  // cardBody.removeEventListener("")
+}
 
 
 
-///////// ***** Saving Palette ***** /////////
+///////// ***** Show Palettes ***** /////////
 function fetchPalettes() {
   fetch("http://localhost:4000/Palettes")
     .then((resp) => resp.json())
@@ -166,13 +171,14 @@ function handleCrud(e){
   e.preventDefault();
   //console.log(e.target.dataset.id)
   if (e.target.id === "edit-btn"){
-    console.log('I am this cards specific edit button');
+    editPalette(e)
   } else if (e.target.id === "save-btn"){
     console.log('I am this cards specific save button')
   } else if (e.target.id === "delete-btn"){
-    console.log('I am this cards specific delete button')
     deletePalette(e)
   }
+
+
 
 function deletePalette(e){
   const paletteId = e.target.dataset.id
@@ -180,7 +186,7 @@ function deletePalette(e){
   .then(resp => resp.json())
   .then(data => {
     if (data.error) {
-      alert('ooops somethign went wrong')
+      alert('Something is amiss!')
     } else {
       e.target.parentNode.remove()
     }
@@ -189,7 +195,27 @@ function deletePalette(e){
 }
 
 
+// function editPalette(e){
+//   const paletteId = document.querySelector("pallete.id")
+//   let updatePalette = {
+//     background_color: paletteId.bgColor.value,
+//     font_color: paletteId.fontColor.value,
+//     font_family: paletteId.font.value
+//   }
+//   //console.log(updatePalette)
+//   fetch("http://localhost:4000/Palettes", {
+//     method: 'PATCH',
+//     headers: {"content-type": 'application/json',
+//             accepts: 'application/json'
+//   },
+//   body: JSON.stringify(updatePalette)
 
+//   })
+//   .then(res => res.json())
+//   .then(pallete => {
+//     renderPalletes(pallete)
+//   })
+// }
 
 
 
