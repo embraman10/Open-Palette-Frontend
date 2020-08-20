@@ -32,7 +32,7 @@ function fetchColors() {
       //console.log(colorHexes);
       const btn = document.getElementById("color-btn");
       const color = document.querySelector(".color");
-      const clearBtn = document.getElementById("clr-btn")
+      const clearBtn = document.getElementById("clr-btn");
 
       const div = document.getElementById("cb");
 
@@ -49,11 +49,11 @@ function fetchColors() {
       function getRandomNumber() {
         return Math.floor(Math.random() * colorHexes.length);
       }
-      clearBtn.addEventListener("click", function(){
+      clearBtn.addEventListener("click", function () {
         const paletteForm = document.getElementById("palette-form");
-        div.style.backgroundColor = ""
-        paletteForm.reset()
-      })
+        div.style.backgroundColor = "";
+        paletteForm.reset();
+      });
     });
 }
 
@@ -69,7 +69,7 @@ function fetchFontColors() {
       const btn = document.getElementById("font-color-btn");
       const fontColor = document.querySelector(".font-color");
       const h2 = document.getElementById("tester");
-      const clearBtn = document.getElementById("clr-btn")
+      const clearBtn = document.getElementById("clr-btn");
 
       btn.addEventListener("click", function () {
         const randomNumber = getRandomNumber();
@@ -85,9 +85,9 @@ function fetchFontColors() {
         return Math.floor(Math.random() * colorHexes.length);
       }
 
-      clearBtn.addEventListener("click", function(){
-        h2.style.color = ""
-      })
+      clearBtn.addEventListener("click", function () {
+        h2.style.color = "";
+      });
     });
 }
 
@@ -96,7 +96,7 @@ function fetchFonts() {
   const btn = document.getElementById("font-family-btn");
   const font = document.querySelector(".font");
   const h2 = document.getElementsByClassName("card-inner");
-  const clearBtn = document.getElementById("clr-btn")
+  const clearBtn = document.getElementById("clr-btn");
 
   btn.addEventListener("click", function () {
     const randomNumber = getRandomNumber();
@@ -114,17 +114,16 @@ function fetchFonts() {
   function getRandomNumber() {
     return Math.floor(Math.random() * fontFamilies.length);
   }
-  clearBtn.addEventListener("click", function(){
-    h2[0].style.fontFamily = ""
-  })
+  clearBtn.addEventListener("click", function () {
+    h2[0].style.fontFamily = "";
+  });
 }
-
 
 ///////// ***** Saving Palette ***** /////////
 
 function fetchPalettes() {
   fetch("http://localhost:3000/user_palettes")
-    .then(resp => resp.json())
+    .then((resp) => resp.json())
     .then((palettes) => {
       palettes.forEach(renderPalettes);
     });
@@ -161,9 +160,8 @@ function handleCrud(e) {
   //console.log(e.target.dataset.id)
   if (e.target.id === "edit-btn") {
     //console.log("I am this cards specific edit button");
-    editPalette(e)
-  }
-  else if (e.target.id === "delete-btn") {
+    editPalette(e);
+  } else if (e.target.id === "delete-btn") {
     //console.log("I am this cards specific delete button");
     deletePalette(e);
   }
@@ -172,39 +170,40 @@ function handleCrud(e) {
 
   // }
 
+  function editPalette(e) {
+    //console.log(e.target.parentNode)
+    const paletteForm = document.getElementById("palette-form");
+    const paletteId = e.target.dataset.id;
+    const h2 = document.getElementsByClassName("card-inner");
+    const div = document.getElementById("cb");
+    const h2Font = document.getElementById("tester");
+    const newBtnSpace = document.getElementById("save-changes-button-space")
 
-function editPalette(e){
-  //console.log(e.target.parentNode) 
-  const paletteForm = document.getElementById("palette-form");
-  const paletteId = e.target.dataset.id;
-  const h2 = document.getElementsByClassName("card-inner");
-  const div = document.getElementById("cb");
-  const h2Font = document.getElementById("tester");
-
-  //console.log(id)
-  fetch(`http://localhost:3000/user_palettes/${paletteId}`)
-  .then(res => res.json())
-  .then(palette => {
-    //console.log(palette)
-    paletteForm.font.value = palette.font_family,
-    paletteForm.fontColor.value = palette.font_color,
-    paletteForm.bgColor.value = palette.background_color,
-
-    h2[0].style.fontFamily = palette.font_family,
-    div.style.backgroundColor = palette.background_color,
-    h2Font.style.color = palette.font_color
-
-    // //paletteForm.dataset.id = dog.id
-  })
-}
+    //console.log(id)
+    fetch(`http://localhost:3000/user_palettes/${paletteId}`)
+      .then((res) => res.json())
+      .then((palette) => {
+        //console.log(palette)
+        (paletteForm.font.value = palette.font_family),
+          (paletteForm.fontColor.value = palette.font_color),
+          (paletteForm.bgColor.value = palette.background_color),
+          (paletteForm.dataset.id = palette.id),
+          (h2[0].style.fontFamily = palette.font_family),
+          (div.style.backgroundColor = palette.background_color),
+          (h2Font.style.color = palette.font_color);
+          newBtnSpace.innerHTML += `<button type="button" data-id="${palette.id} style="margin-top: 20px;" id="save-changes-btn" class="btn btn-dark">Save Changes</button>`
+      });
+  }
 
   function deletePalette(e) {
     const paletteId = e.target.dataset.id;
-    console.log(e.target.dataset.id)
-    fetch(`http://localhost:3000/user_palettes/${paletteId}`, { method: "DELETE" })
-      .then(resp => console.log(resp))
-      .then(data => {
-          e.target.parentNode.remove();
+    console.log(e.target.dataset.id);
+    fetch(`http://localhost:3000/user_palettes/${paletteId}`, {
+      method: "DELETE",
+    })
+      .then((resp) => console.log(resp))
+      .then((data) => {
+        e.target.parentNode.remove();
       });
   }
 }
@@ -214,10 +213,37 @@ function handleSave(e) {
   if (e.target.id === "save-btn") {
     //console.log('I am the save button')
     submitPalette(e);
+  } else if (e.target.id === "save-changes-btn"){
+    //console.log("I am the Save Changes Button!")
+    editedPalette(e)
   }
 }
 
 
+function editedPalette(e){
+  e.preventDefault()
+  const paletteId = e.target.dataset.id;
+  console.log(paletteId)
+  const paletteForm = document.getElementById("palette-form");
+  let newPalette = {
+    background_color: paletteForm.bgColor.value,
+    font_color: paletteForm.fontColor.value,
+    font_family: paletteForm.font.value,
+    user_id: 24,
+  };
+  //console.log(newPalette)
+  fetch(`http://localhost:3000/user_palettes/${paletteId}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(newPalette),
+  })
+    .then((res) => res.json())
+    .then((palette) => {
+      console.log(palette);
+    });
+}
 
 function submitPalette(e) {
   const paletteForm = document.getElementById("palette-form");
@@ -225,40 +251,21 @@ function submitPalette(e) {
     background_color: paletteForm.bgColor.value,
     font_color: paletteForm.fontColor.value,
     font_family: paletteForm.font.value,
-    user_id: 24
+    user_id: 24,
   };
   //console.log(newPalette)
   fetch("http://localhost:3000/user_palettes", {
     method: "POST",
     headers: {
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(newPalette),
   })
-    .then(res => res.json())
+    .then((res) => res.json())
     .then((palette) => {
       renderPalettes(palette);
     });
-
 }
-
-
-
-// function popUp(){
-//   const modal = document.querySelector('#my-modal');
-//   document.addEventListener("DOMContentLoaded", function(event){
-//     console.log("hey i loaded")
-//     modal.style.display = 'block'
-//   })
-//   const closeBtn = document.querySelector('.close');
-//   closeBtn.addEventListener('click', function(){
-//     modal.style.display = 'none'
-//   });
-//   const letsGoBtn = document.getElementById('lets-go');
-//   letsGoBtn.addEventListener('click', function(){
-//     modal.style.display = 'none'
-// })
-// }
 
 
 ///////// ***** Initializer ***** /////////
