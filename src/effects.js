@@ -1,7 +1,7 @@
 
 function main(){
     popUp();
-    specialBtn();
+    // specialBtn();
     // hello();
     hi();
     toggleShowCards();
@@ -27,36 +27,38 @@ function popUp(){
 
 
 function toggleShowCards(){
-    let btn = document.getElementById("show-btn")
+    let btn = document.getElementById("show-save-btn")
+    console.log("btn")
     let showContainer = document.getElementById("show-body");
-    let showCard = false;
+    let showCard = true;
     btn.addEventListener("click", function(){
         showCard = !showCard;
         if (showCard) {
-            showContainer.style.display = "block"
-        } else {
+            showContainer.style.display = "flex"
+        } else  {
             showContainer.style.display = "none"
-        }
+        } 
+
     })
 }
 
 
 
-function specialBtn(){
-    const element = document.getElementById('font-family-btn')
-    element.addEventListener('click', function(event){
+// function specialBtn(){
+//     const element = document.getElementById('font-family-btn')
+//     element.addEventListener('click', function(event){
 
-        element.add('swing animated');
-        element.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(e){
+//         element.add('swing animated');
+//         element.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(e){
        
-         // trick to execute the animation again
-          $(e.target).removeClass('swing animated');
+//          // trick to execute the animation again
+//           $(e.target).removeClass('swing animated');
         
-        });
+//         });
 
-        console.log("hey i wiggled")
-      });
-};
+//         console.log("hey i wiggled")
+//       });
+// };
 
 
 // function hello(){
