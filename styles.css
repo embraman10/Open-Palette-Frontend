@@ -417,9 +417,10 @@ h1.ml8 {
     color: #343a40;
     text-align: left;
     background-color: #fff;
+    background: url("https://img.freepik.com/free-photo/background-crumpled-paper-sheet_1194-7545.jpg?size=626&ext=jpg");
   }
   
-  body::after{
+  /* body::after{
     content: "";
     background: url("https://img.freepik.com/free-photo/background-crumpled-paper-sheet_1194-7545.jpg?size=626&ext=jpg");
     opacity: 0.2;
@@ -430,7 +431,7 @@ h1.ml8 {
     position: absolute;
     z-index: -1; 
     
-  }
+  } */
 
 
   [tabindex="-1"]:focus:not(:focus-visible) {
