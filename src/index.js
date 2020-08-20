@@ -11,14 +11,20 @@ let fontFamilies = [
   "Perpetua",
   "Cursive",
 ];
-document.addEventListener("click", handleSave);
 
 function main() {
+  // popUp();
   fetchColors();
   fetchFontColors();
   fetchFonts();
   fetchPalettes();
 }
+
+// function popUp(hideOrshow) {
+//   (window).on('load',function(){
+//     $('#myModal').modal('show');
+// });
+// }
 
 ///////// ***** Change Background Color ***** /////////
 function fetchColors() {
@@ -56,6 +62,8 @@ function fetchColors() {
     });
 }
 
+
+
 ///////// ***** Change Font Color ***** /////////
 function fetchFontColors() {
   fetch("http://localhost:3000/background_color_changers")
@@ -90,6 +98,8 @@ function fetchFontColors() {
     });
 }
 
+
+
 ///////// ***** Change Font Family ***** /////////
 function fetchFonts() {
   const btn = document.getElementById("font-family-btn");
@@ -118,18 +128,9 @@ function fetchFonts() {
   })
 }
 
-///////// ***** Clear Palette ***** /////////
-// function clearPalette(){
-//   const cardForm = document.getElementById("palette-form");
-//   const cardBody = document.getElementById("cb");
-//   const clearBtn = document.getElementById("clr-btn");
-//   clearBtn.addEventListener("click", function(){
-//     cardForm.reset()
-//   });
-// }
 
-///////// ***** Saving Palette ***** /////////
 
+///////// ***** Saving, Edit, & Delete Palette ***** /////////
 function fetchPalettes() {
   fetch("http://localhost:3000/user_palettes")
     .then(resp => resp.json())
@@ -138,10 +139,16 @@ function fetchPalettes() {
     });
 }
 
+
+
 function renderPalettes(palette) {
   const showPanel = document.getElementById("show-body");
   //console.log(palette.user.id)
-  showPanel.innerHTML += `  <div class="saved-card-body" data-id="${palette.id}" style="background-color: ${palette.background_color}">
+  showPanel.innerHTML += `  
+  <div class="index-container">
+  <div class="card-deck mb-3 text-center">
+  <div class="card mb-4 shadow-sm">
+  <div class="card-body" data-id="${palette.id}" style="background-color: ${palette.background_color}">
                             <h2 data-id="${palette.id}" style="font-family: ${palette.font_family}; color: ${palette.font_color}">${palette.user.name}</h2>
                             <div>
                             <h2> background color : <span class="color">${palette.background_color}</span></h2>
@@ -152,9 +159,10 @@ function renderPalettes(palette) {
                             <div>
                             <h2> font : <span class="font-family">${palette.font_family}</span></h2>
                             </div>
-                            <button type="button" data-id="${palette.id}" id="edit-btn" class="btn btn-outline-warning">Edit this Card</button><br><br>
-                            <button type="button" data-id="${palette.id}" id="delete-btn" class="btn btn-outline-danger">Delete</button>
-                            </div>`;
+                            <div class="card-footer">
+                            <button type="button" data-id="${palette.id}" id="edit-btn" class="btn btn-warning">Edit this Card</button><br><br>
+                            <button type="button" data-id="${palette.id}" id="delete-btn" class="btn btn-danger">Delete</button>
+                            </div></div></div></div></div>`;
   const footer = document.getElementById("temp-id");
   footer.addEventListener("click", handleCrud);
 }
@@ -175,13 +183,11 @@ function handleCrud(e) {
     deletePalette(e);
   }
 
-  // function savePalette(e){
 
-  // }
 
   function deletePalette(e) {
     const paletteId = e.target.dataset.id;
-    fetch(`http://localhost:4000/UserPalett/${paletteId}`, { method: "DELETE" })
+    fetch(`http://localhost:3000/user_palettes/${paletteId}`, { method: "DELETE" })
       .then((resp) => resp.json())
       .then((data) => {
         if (data.error) {
@@ -192,6 +198,8 @@ function handleCrud(e) {
       });
   }
 }
+
+
 
 function handleSave(e) {
   e.preventDefault();
@@ -225,6 +233,7 @@ function submitPalette(e) {
     });
 
 }
+
 
 ///////// ***** Initializer ***** /////////
 main();
