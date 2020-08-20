@@ -4,12 +4,15 @@
         <meta charset="utf-8">
         <title> Open Palette </title>
         <link rel="stylesheet" href="styles.css">
+        
+
+        
     </head>
 
     
 <!-- *********** Top Navbar *********** -->
 <header>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
 
     <a class="navbar-brand" href="#">Open Palette</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,7 +28,7 @@
       </ul>
       <br>
       <form class="form-inline my-2 my-lg-0">
-        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Logout</button>
+        <!-- <button class="btn btn-secondary my-2 my-sm-0" type="submit">Logout</button> -->
       </form>
     </div>
   </nav>
@@ -35,15 +38,15 @@
 <!-- *********** Side Navbar *********** -->
 
 <body>
-  <br><br>
+  <br><br><br><br>
 <div class="card-deck">
   <div class="sidenav">
     <br>
-    <button type="button" id= "font-family-btn" class="btn btn-outline-primary" font-family="Roboto">Font Family</button><br><br>
-    <button type="button" class="btn btn-outline-success" id="font-color-btn">Font Color</button><br><br>
-    <button type="button" id="color-btn" class="btn btn-outline-warning">Background</button><br><br>
-    <button type="button" id="save-btn" class="btn btn-outline-success">Save</button><br><br>
-    <button type="button" id="clr-btn" class="btn btn-outline-danger">Clear</button>
+    <button type="button" id= "font-family-btn" class="btn btn-primary" font-family="Roboto">Font Family</button><br><br>
+    <button type="button" class="btn btn-success" id="font-color-btn">Font Color</button><br><br>
+    <button type="button" id="color-btn" class="btn btn-warning">Background</button><br><br>
+    <button type="button" id="save-btn" class="btn btn-success">Save</button><br><br>
+    <button type="button" id="clr-btn" class="btn btn-danger">Clear</button>
     <br><br>
 
   </div>
@@ -51,16 +54,15 @@
 <!-- *********** Palette Body *********** -->
   <div class="card-palette p-3 px-md-3">
     <div class="card mb-4 shadow-sm">
-      <div class="card-body" id="cb">
+      <div class="card-body-demo" id="cb">
 
-        <h2 class="card-inner" id="tester">Tester Here</h2>
-        <div>
+        <h1 class="card-inner" id="tester">Tester Here</h1>
+        <!-- <div>
           <h2> background color : <span id="bgColorH2" class="color">#f1f5f8</span></h2>
         </div>
         <div>
           <h2> font color : <span id="fontColorH2" class="font-color">#f1f5f8</span></h2>
-
-        </div>
+        </div> -->
       </div>
 
       <div class="card-footer">
@@ -83,10 +85,8 @@
 
 </div>
 
-
-
-<!-- *********** Login Form *********** -->
-<!-- <div class="modal fade" role="dialog" id="loginModal">
+<!-- *********** Login Form ***********
+<div class="modal fade" role="dialog" id="ac-wrapper" style='display:none'>
   <div class="modal-dialog">
     <div class="modal-header">
       <h3 class="modal-title">Open Palette Login</h3>
@@ -105,22 +105,24 @@
   </div>
 </div> -->
 
-
-
-
-
-
-
 <!-- *********** Footer *********** -->
-<footer id="temp-id" class="footer mt-auto py-3">
+<footer id="temp-id" >
 
-<div class="footer-copyright text-center py-3"> YEET</div>
+<div class="footer bg-primary fixed-bottom"> YEET</div>
 </footer>
 
 
 
+<!-- <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+<script>    
+$(document).ready(function() {
+	if (!Cookies.get("popup")) {
+		$("#myModal").modal('show');
+		Cookies.set('popup', 'popped');
+	}
+});
+</script> -->
 
-<script src="./src/login.js"></script>
 <script src="./src/index.js" defer></script>
 </body>
 </html>

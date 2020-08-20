@@ -24,6 +24,9 @@
           flex: 1 1 auto;
   min-height: 1px;
   padding: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .card-palette {
@@ -34,11 +37,13 @@
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
-  left: 30%;
 
+  left: 10%;
+  margin: left;
+  width: 70%;
 }
+
+
 
 
  .container {
@@ -63,6 +68,7 @@
     justify-content: space-around;
     justify-content: space-evenly;
     width: 20%;
+    margin: auto;
   }
   
   .index-tile {
@@ -77,31 +83,26 @@
   }
 
 /* The sidebar menu */
-.sidenav {
-    height: 50%;
+  .sidenav {
+    height: 100%;
     width: 160px;
     /* position: fixed;  */
     /* z-index: 1; Stay on top */
     top: 0; 
     left: 0;
-    background-color: #f8f9fa; 
+    background-color: #f8f5f0; 
     overflow-x: hidden;
-    padding-top: 20px;
-    /* border: 1 px solid black;
-      position: relative; */
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+    padding: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
   background-clip: border-box;
-  /* border: 1px solid rgba(0, 0, 0, 0.125); */
-  border-radius: 0.25rem;
   }
   
   /* The navigation menu links */
@@ -154,7 +155,7 @@
     --warning: #f0ad4e;
     --danger: #d9534f;
     --light: #f8f9fa;
-    --dark: #343a40;
+    --dark: #3e3f3a;
     --breakpoint-xs: 0;
     --breakpoint-sm: 576px;
     --breakpoint-md: 768px;
@@ -193,9 +194,9 @@
     background-color: #fff;
   }
   
-  body::after{
+  /* body::after{
     content: "";
-    background: url("https://www.fg-a.com/wallpapers/2018-white-texture-background-image.jpg");
+    background: url("https://i.pinimg.com/originals/7d/f6/f4/7df6f4fec91702f24242c11574456a95.jpg");
     opacity: 0.2;
     top: 0;
     left: 0;
@@ -203,8 +204,8 @@
     right: 0;
     position: absolute;
     z-index: -1; 
-    
-  }
+    background-repeat: no-repeat;
+  } */
 
 
   [tabindex="-1"]:focus:not(:focus-visible) {
@@ -5226,7 +5227,21 @@
             flex: 1 1 auto;
     min-height: 1px;
     padding: 1.25rem;
+
   }
+
+  .card-body-demo {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
   .saved-card-body {
     text-align: center;
     border: grey solid 1px;
@@ -5274,6 +5289,9 @@
     padding: 0.75rem 1.25rem;
     background-color: rgba(0, 0, 0, 0.03);
     border-top: 1px solid rgba(0, 0, 0, 0.125);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .card-footer:last-child {
@@ -7268,13 +7286,13 @@
   }
   
   .bg-primary {
-    background-color: #4582ec !important;
+    background-color: #3e3f3a !important;
   }
   
   a.bg-primary:hover, a.bg-primary:focus,
   button.bg-primary:hover,
   button.bg-primary:focus {
-    background-color: #1863e6 !important;
+    background-color: #325d88 !important;
   }
   
   .bg-secondary {
@@ -10940,7 +10958,7 @@
   }
   
   .navbar.bg-dark {
-    background-color: #02b875 !important;
+    background-color: #3e3f3a!important;
   }
   
   .navbar.bg-light {
