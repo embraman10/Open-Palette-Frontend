@@ -118,15 +118,6 @@ function fetchFonts() {
   })
 }
 
-///////// ***** Clear Palette ***** /////////
-// function clearPalette(){
-//   const cardForm = document.getElementById("palette-form");
-//   const cardBody = document.getElementById("cb");
-//   const clearBtn = document.getElementById("clr-btn");
-//   clearBtn.addEventListener("click", function(){
-//     cardForm.reset()
-//   });
-// }
 
 ///////// ***** Saving Palette ***** /////////
 
@@ -141,7 +132,11 @@ function fetchPalettes() {
 function renderPalettes(palette) {
   const showPanel = document.getElementById("show-body");
   //console.log(palette)
-  showPanel.innerHTML += `  <div class="saved-card-body" data-id="${palette.id}" style="background-color: ${palette.background_color}">
+  showPanel.innerHTML += `  
+  <div class="index-container">
+  <div class="card-deck mb-3 text-center">
+  <div class="card mb-4 shadow-sm">
+  <div class="card-body" data-id="${palette.id}" style="background-color: ${palette.background_color}">
                             <h2 data-id="${palette.id}" style="font-family: ${palette.font_family}; color: ${palette.font_color}">${palette.user.name}</h2>
                             <div>
                             <h2> background color : <span id="${palette.id}" class="color">${palette.background_color}</span></h2>
@@ -152,9 +147,10 @@ function renderPalettes(palette) {
                             <div>
                             <h2> font : <span class="font-family">${palette.font_family}</span></h2>
                             </div>
+                            <br>
                             <button type="button" data-id="${palette.id}" id="edit-btn" class="btn btn-warning">Edit this Card</button><br><br>
                             <button type="button" data-id="${palette.id}" id="delete-btn" class="btn btn-danger">Delete</button>
-                            </div>`;
+                            </div></div></div></div>`;
   const footer = document.getElementById("show-body");
   footer.addEventListener("click", handleCrud);
 }
@@ -244,6 +240,17 @@ function submitPalette(e) {
     });
 
 }
+
+
+
+function popUp(){
+  let welcome = document.querySelector(".welcome")
+  document.addEventListener("DOMContentLoaded", function(event){
+    console.log("hey i loaded")
+
+  })
+}
+
 
 ///////// ***** Initializer ***** /////////
 main();
