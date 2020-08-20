@@ -133,7 +133,7 @@ function renderPalettes(palette) {
   const showPanel = document.getElementById("show-body");
   //console.log(palette)
   showPanel.innerHTML += `  
-  <div class="index-container">
+
   <div class="card-deck mb-3 text-center">
   <div class="card mb-4 shadow-sm">
   <div class="card-body" data-id="${palette.id}" style="background-color: ${palette.background_color}">
@@ -150,9 +150,14 @@ function renderPalettes(palette) {
                             <br>
                             <button type="button" data-id="${palette.id}" id="edit-btn" class="btn btn-warning">Edit this Card</button><br><br>
                             <button type="button" data-id="${palette.id}" id="delete-btn" class="btn btn-danger">Delete</button>
-                            </div></div></div></div>`;
+                            </div></div></div>`;
   const footer = document.getElementById("show-body");
   footer.addEventListener("click", handleCrud);
+
+  document.addEventListener("DOMContentLoaded", function(){
+  //   console.log("hey i loaded")
+    showPanel.style.display = 'none'
+  })
 }
 
 function handleCrud(e) {
