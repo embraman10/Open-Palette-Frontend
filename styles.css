@@ -40,6 +40,91 @@
   width: 70%;
 
 }
+.ml2 {
+  font-weight: 900;
+  font-size: 3.5em;
+}
+
+.ml2 .letter {
+  display: inline-block;
+  line-height: 1em;
+}
+
+/*base code*/
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+.animated.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+.animated.hinge {
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+}
+/*the animation definition*/
+@-webkit-keyframes swing {
+  20% {
+    -webkit-transform: rotate3d(0, 0, 1, 15deg);
+    transform: rotate3d(0, 0, 1, 15deg)
+  }
+  40% {
+    -webkit-transform: rotate3d(0, 0, 1, -10deg);
+    transform: rotate3d(0, 0, 1, -10deg)
+  }
+  60% {
+    -webkit-transform: rotate3d(0, 0, 1, 5deg);
+    transform: rotate3d(0, 0, 1, 5deg)
+  }
+  80% {
+    -webkit-transform: rotate3d(0, 0, 1, -5deg);
+    transform: rotate3d(0, 0, 1, -5deg)
+  }
+  100% {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg)
+  }
+}
+@keyframes swing {
+  20% {
+    -webkit-transform: rotate3d(0, 0, 1, 15deg);
+    -ms-transform: rotate3d(0, 0, 1, 15deg);
+    transform: rotate3d(0, 0, 1, 15deg)
+  }
+  40% {
+    -webkit-transform: rotate3d(0, 0, 1, -10deg);
+    -ms-transform: rotate3d(0, 0, 1, -10deg);
+    transform: rotate3d(0, 0, 1, -10deg)
+  }
+  60% {
+    -webkit-transform: rotate3d(0, 0, 1, 5deg);
+    -ms-transform: rotate3d(0, 0, 1, 5deg);
+    transform: rotate3d(0, 0, 1, 5deg)
+  }
+  80% {
+    -webkit-transform: rotate3d(0, 0, 1, -5deg);
+    -ms-transform: rotate3d(0, 0, 1, -5deg);
+    transform: rotate3d(0, 0, 1, -5deg)
+  }
+  100% {
+    -webkit-transform: rotate3d(0, 0, 1, 0deg);
+    -ms-transform: rotate3d(0, 0, 1, 0deg);
+    transform: rotate3d(0, 0, 1, 0deg)
+  }
+}
+.swing {
+  -webkit-transform-origin: top center;
+  -ms-transform-origin: top center;
+  transform-origin: top center;
+  -webkit-animation-name: swing;
+  animation-name: swing
+}
+
+
+
 
 
  .container {
@@ -134,6 +219,78 @@
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
   }
+
+
+
+
+/* Hello CSS presets */
+h1.ml8 {
+  font-weight: 900;
+  font-size: 4.5em;
+  color: #fff;
+  width: 3em;
+  height: 3em;
+}
+
+.ml8 .letters-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  height: 1em;
+}
+
+.ml8 .letters {
+  position: relative;
+  z-index: 2;
+  display: inline-block;
+  line-height: 0.7em;
+  right: -0.12em;
+  top: -0.2em;
+}
+
+.ml8 .bang {
+  font-size: 1.4em;
+  top: auto;
+  left: -0.06em;
+}
+
+.ml8 .circle {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+}
+
+.ml8 .circle-white {
+  width: 3em;
+  height: 3em;
+  border: 2px dashed white;
+  border-radius: 2em;
+  
+  height: 100px;
+}
+
+.ml8 .circle-dark {
+  width: 2.2em;
+  height: 2.2em;
+  background-color: #4f7b86;
+  border-radius: 3em;
+  z-index: 1;
+}
+
+.ml8 .circle-dark-dashed {
+  border-radius: 2.4em;
+  background-color: transparent;
+  border: 2px dashed #4f7b86;
+  width: 2.3em;
+  height: 2.3em;
+}
+
 
 
  :root {
@@ -6459,16 +6616,16 @@
   }
   
   .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1050;
-    display: none;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    outline: 0;
-  }
+  display: none;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
   
   .modal-dialog {
     position: relative;
@@ -6564,7 +6721,7 @@
   }
   
   .modal-content {
-    position: relative;
+    position: fixed;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -6572,13 +6729,16 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    width: 100%;
+    top: 25%;
+    width: 50%;
+    left: 25%;
     pointer-events: auto;
     background-color: #fff;
     background-clip: padding-box;
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    /* border: 5px solid rgba(0, 0, 0, 0.2); */
     border-radius: 0.3rem;
     outline: 0;
+    height: 500px;
   }
   
   .modal-backdrop {
@@ -6600,19 +6760,10 @@
   }
   
   .modal-header {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    padding: 1rem 1rem;
-    border-bottom: 1px solid #ddd;
-    border-top-left-radius: calc(0.3rem - 1px);
-    border-top-right-radius: calc(0.3rem - 1px);
+    padding: 15px;
+    color: #fff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
   }
   
   .modal-header .close {
@@ -6631,24 +6782,23 @@
         -ms-flex: 1 1 auto;
             flex: 1 1 auto;
     padding: 1rem;
+    height: auto;
+    align-items: center;
+    text-align: center;
+    height: auto;
+    display: inline-block;
   }
   
   .modal-footer {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
-    padding: 0.75rem;
-    border-top: 1px solid #ddd;
-    border-bottom-right-radius: calc(0.3rem - 1px);
-    border-bottom-left-radius: calc(0.3rem - 1px);
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+            background-color: #fff;
+    
   }
   
   .modal-footer > * {

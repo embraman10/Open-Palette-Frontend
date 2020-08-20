@@ -4,17 +4,20 @@
         <meta charset="utf-8">
         <title> Open Palette </title>
         <link rel="stylesheet" href="styles.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
     </head>
 
     
 <!-- *********** Top Navbar *********** -->
 <header>
-<nav class="navbar navbar-expand-lg navbar-light bg-prima">
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
 
     <a class="navbar-brand" href="#">Open Palette</a>
+   
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    
     <div class="collapse navbar-collapse" id="navbarColor02">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
@@ -37,7 +40,7 @@
 <div class="card-deck">
   <div class="sidenav">
     <br>
-    <button type="button" id= "font-family-btn" class="btn btn-outline-primary" font-family="Roboto">Font Family</button><br><br>
+    <button type="button" id= "font-family-btn" class="btn btn-outline-primary swing animated" font-family="Roboto">Font Family</button><br><br>
     <button type="button" class="btn btn-outline-success" id="font-color-btn">Font Color</button><br><br>
     <button type="button" id="color-btn" class="btn btn-outline-warning">Background</button><br><br>
     <button type="button" id="save-btn" class="btn btn-outline-success">Save</button><br><br>
@@ -46,6 +49,9 @@
       
     </div>
     <br><br>
+
+    <!-- <div id="square" class="swing animated"> Square </div> -->
+
 
   </div>
 
@@ -83,19 +89,29 @@
 
 
 <!-- *********** Welcome Popup *********** -->
-<div class="modal fade" id="welcome" role="dialog">
-  <div class="modal-dialog-centered">
+<div id="my-modal" class="modal">
+  <div class="modal-content">
     <div class="modal-header">
-      <h3 class="modal-title">Welcome to Open Palette!</h3>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
+      <span class="close">&times;</span>
     </div>
     <div class="modal-body">
-      <h6>Get ready to have fun and see how easy it is to create different palettes!</h6>
+      <h1 class="ml8">
+      <span class="letters-container">
+        <span class="letters letters-left">Hi</span>
+        <span class="letters bang">!</span>
+      </span>
+      <span class="circle circle-white" style="height:100px top"></span>
+      <span class="circle circle-dark"></span>
+      <span class="circle circle-container" ><span class="circle circle-dark-dashed"></span></span>
+      </h1>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+      <h1>Welcome to Open Palette!</h1>
+      <h6>Get ready to have fun and see how easy it is to create different palettes!</h6><br>
       <p>Warning: fast blinking colors may potentially trigger seizures for people with photosensitive epilepsy. Viewer discretion is advised.</p>
     </div>
     <div class="modal-footer">
+      <button type="button" id= "lets-go" class="btn btn-primary" font-family="Roboto">Let's Go!</button><br>
     </div>
   </div>
 </div>
@@ -104,10 +120,8 @@
 
 
 
-
-
 <!-- *********** Footer *********** -->
-<footer id="temp-id" class="footer bg-light fixed-bottom">
+<footer id="temp-id" class="footer fixed-bottom">
 
 <div class="footer-copyright text-center py-3"> YEET</div>
 </footer>
@@ -115,7 +129,7 @@
 
 
 
-<!-- <script src="./src/login.js"></script> -->
+<script src="./src/effects.js" defer></script>
 <script src="./src/index.js" defer></script>
 </body>
 </html>

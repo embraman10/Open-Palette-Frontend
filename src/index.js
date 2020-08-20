@@ -14,6 +14,7 @@ let fontFamilies = [
 document.addEventListener("click", handleSave);
 
 function main() {
+  // popUp();
   fetchColors();
   fetchFontColors();
   fetchFonts();
@@ -266,12 +267,6 @@ function submitPalette(e) {
     });
 }
 
-function popUp() {
-  let welcome = document.querySelector(".welcome");
-  document.addEventListener("DOMContentLoaded", function (event) {
-    console.log("hey i loaded");
-  });
-}
 
 ///////// ***** Initializer ***** /////////
 main();
