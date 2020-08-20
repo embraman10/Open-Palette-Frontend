@@ -14,6 +14,7 @@ let fontFamilies = [
 document.addEventListener("click", handleSave);
 
 function main() {
+  popUp();
   fetchColors();
   fetchFontColors();
   fetchFonts();
@@ -244,11 +245,15 @@ function submitPalette(e) {
 
 
 function popUp(){
-  let welcome = document.querySelector(".welcome")
+  const modal = document.querySelector('#my-modal');
   document.addEventListener("DOMContentLoaded", function(event){
     console.log("hey i loaded")
-
+    modal.style.display = 'block'
   })
+  const closeBtn = document.querySelector('.close');
+  closeBtn.addEventListener('click', function(){
+    modal.style.display = 'none'
+  });
 }
 
 

@@ -9,7 +9,7 @@
     
 <!-- *********** Top Navbar *********** -->
 <header>
-<nav class="navbar navbar-expand-lg navbar-light bg-prima">
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
 
     <a class="navbar-brand" href="#">Open Palette</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,19 +80,19 @@
 
 
 <!-- *********** Welcome Popup *********** -->
-<div class="modal fade" id="welcome" role="dialog">
-  <div class="modal-dialog-centered">
+<div id="my-modal" class="modal">
+  <div class="modal-content">
     <div class="modal-header">
-      <h3 class="modal-title">Welcome to Open Palette!</h3>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
+      <span class="close">&times;</span>
+      <h2>Welcome to Open Palette!</h2>
     </div>
     <div class="modal-body">
-      <h6>Get ready to have fun and see how easy it is to create different palettes!</h6>
+      <h1>Hello!</h1><br>
+      <h6>Get ready to have fun and see how easy it is to create different palettes!</h6><br>
       <p>Warning: fast blinking colors may potentially trigger seizures for people with photosensitive epilepsy. Viewer discretion is advised.</p>
     </div>
     <div class="modal-footer">
+      <button type="button" id= "font-family-btn" class="btn btn-primary" font-family="Roboto">Let's Go!</button><br>
     </div>
   </div>
 </div>
@@ -101,10 +101,8 @@
 
 
 
-
-
 <!-- *********** Footer *********** -->
-<footer id="temp-id" class="footer bg-light fixed-bottom">
+<footer id="temp-id" class="footer fixed-bottom">
 
 <div class="footer-copyright text-center py-3"> YEET</div>
 </footer>
@@ -112,7 +110,7 @@
 
 
 
-<!-- <script src="./src/login.js"></script> -->
+
 <script src="./src/index.js" defer></script>
 </body>
 </html>
