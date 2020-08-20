@@ -34,9 +34,10 @@
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
-  left: 30%;
+
+  left: 10%;
+  margin: left;
+  width: 70%;
 
 }
 
@@ -58,20 +59,22 @@
 }
 
  .index-container {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    justify-content: space-evenly;
-    width: 20%;
+    display: inline-grid;
+
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;
+
+    justify-content: center;
+ 
   }
-  
+
+
   .index-tile {
-    border: 3px solid rgb(4, 73, 163);
-    border-radius: 25px;
-    background-color: rgba(0, 0, 0, 0.75);
     padding: 15px;
     margin: 10px;
-    background-color: rgba(0, 0, 0, 0.4);
     text-align: center;
     width: 20%;
   }
@@ -195,7 +198,7 @@
   
   body::after{
     content: "";
-    background: url("https://www.fg-a.com/wallpapers/2018-white-texture-background-image.jpg");
+    background: url("https://img.freepik.com/free-photo/background-crumpled-paper-sheet_1194-7545.jpg?size=626&ext=jpg");
     opacity: 0.2;
     top: 0;
     left: 0;
@@ -5227,6 +5230,20 @@
     min-height: 1px;
     padding: 1.25rem;
   }
+
+
+  .card-body-demo {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 auto;
+            flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
   .saved-card-body {
     text-align: center;
     border: grey solid 1px;
@@ -5274,6 +5291,9 @@
     padding: 0.75rem 1.25rem;
     background-color: rgba(0, 0, 0, 0.03);
     border-top: 1px solid rgba(0, 0, 0, 0.125);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .card-footer:last-child {
