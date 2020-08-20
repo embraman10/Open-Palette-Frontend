@@ -222,7 +222,7 @@ function handleSave(e) {
 function editedPalette(e){
   e.preventDefault()
   const paletteId = e.target.dataset.id;
-  console.log(paletteId)
+  //console.log(paletteId)
   const paletteForm = document.getElementById("palette-form");
   let newPalette = {
     background_color: paletteForm.bgColor.value,
@@ -240,7 +240,15 @@ function editedPalette(e){
   })
     .then((res) => res.json())
     .then((palette) => {
-      console.log(palette);
+      //const foundPalette = document.querySelectorAll(`div[data-id="${palette.id}"]`);
+      console.log(foundPalette[0].style.backgroundColor)
+      //foundPalette[0].style.backgroundColor = palette.background_color
+
+      // {"id":55,"background_color":"#47a3c6","font_color":"#f5eec6","font_family":"Impact","user":
+      // {"id":24,"name":"Kenny Penny","email":"nakesha@stokes.net","password":"password"}}
+      //foundPalette[0].innerText = dog.name
+      //foundPalette.children[1].innerText = dog.breed
+      //foundPalette.children[2].innerText = dog.sex
     });
 }
 
