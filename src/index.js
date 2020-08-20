@@ -14,7 +14,7 @@ let fontFamilies = [
 document.addEventListener("click", handleSave);
 
 function main() {
-  popUp();
+  // popUp();
   fetchColors();
   fetchFontColors();
   fetchFonts();
@@ -244,17 +244,21 @@ function submitPalette(e) {
 
 
 
-function popUp(){
-  const modal = document.querySelector('#my-modal');
-  document.addEventListener("DOMContentLoaded", function(event){
-    console.log("hey i loaded")
-    modal.style.display = 'block'
-  })
-  const closeBtn = document.querySelector('.close');
-  closeBtn.addEventListener('click', function(){
-    modal.style.display = 'none'
-  });
-}
+// function popUp(){
+//   const modal = document.querySelector('#my-modal');
+//   document.addEventListener("DOMContentLoaded", function(event){
+//     console.log("hey i loaded")
+//     modal.style.display = 'block'
+//   })
+//   const closeBtn = document.querySelector('.close');
+//   closeBtn.addEventListener('click', function(){
+//     modal.style.display = 'none'
+//   });
+//   const letsGoBtn = document.getElementById('lets-go');
+//   letsGoBtn.addEventListener('click', function(){
+//     modal.style.display = 'none'
+// })
+// }
 
 
 ///////// ***** Initializer ***** /////////
