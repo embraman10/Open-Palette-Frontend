@@ -4,13 +4,14 @@ function main(){
     specialBtn();
     // hello();
     hi();
+    toggleShowCards();
 }
 
 
 function popUp(){
     const modal = document.querySelector('#my-modal');
     document.addEventListener("DOMContentLoaded", function(event){
-      console.log("hey i loaded")
+    //   console.log("hey i loaded")
       modal.style.display = 'block'
     })
     const closeBtn = document.querySelector('.close');
@@ -21,28 +22,41 @@ function popUp(){
     letsGoBtn.addEventListener('click', function(){
       modal.style.display = 'none'
   })
-  }
+};
 
 
 
+function toggleShowCards(){
+    let btn = document.getElementById("show-btn")
+    let showContainer = document.getElementById("show-body");
+    let showCard = false;
+    btn.addEventListener("click", function(){
+        showCard = !showCard;
+        if (showCard) {
+            showContainer.style.display = "block"
+        } else {
+            showContainer.style.display = "none"
+        }
+    })
+}
 
 
 
-// function specialBtn(){
-//     const element = document.getElementById('font-family-btn')
-//     element.addEventListener('click', function(event){
+function specialBtn(){
+    const element = document.getElementById('font-family-btn')
+    element.addEventListener('click', function(event){
 
-//         element.add('swing animated');
-//         // element.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(e){
+        element.add('swing animated');
+        element.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(e){
        
-//         //  // trick to execute the animation again
-//         //   $(e.target).removeClass('swing animated');
+         // trick to execute the animation again
+          $(e.target).removeClass('swing animated');
         
-//         // });
+        });
 
-//         console.log("hey i wiggled")
-//       });
-// }
+        console.log("hey i wiggled")
+      });
+};
 
 
 // function hello(){
@@ -72,39 +86,39 @@ function popUp(){
 
 
 function hi(){
+    document.addEventListener("DOMContentLoaded", function(event){
     anime.timeline({loop: false})
-    .add({
-        targets: '.ml8 .circle-white',
-        scale: [0, 3],
-        opacity: [1, 0],
-        easing: "easeInOutExpo",
-        rotateZ: 360,
-        duration: 1100
-    }).add({
-        targets: '.ml8 .circle-container',
-        scale: [0, 1],
-        duration: 1100,
-        easing: "easeInOutExpo",
-        offset: '-=1000'
-    }).add({
-        targets: '.ml8 .circle-dark',
-        scale: [0, 1],
-        duration: 1100,
-        easing: "easeOutExpo",
-        offset: '-=600'
-    }).add({
-        targets: '.ml8 .letters-left',
-        scale: [0, 1],
-        duration: 1200,
-        offset: '-=550'
-    }).add({
-        targets: '.ml8 .bang',
-        scale: [0, 1],
-        rotateZ: [45, 15],
-        duration: 1200,
-        offset: '-=1000'
-
-    });
+        .add({
+            targets: '.ml8 .circle-white',
+            scale: [0, 3],
+            opacity: [1, 0],
+            easing: "easeInOutExpo",
+            rotateZ: 360,
+            duration: 1100
+        }).add({
+            targets: '.ml8 .circle-container',
+            scale: [0, 1],
+            duration: 1100,
+            easing: "easeInOutExpo",
+            offset: '-=1000'
+        }).add({
+            targets: '.ml8 .circle-dark',
+            scale: [0, 1],
+            duration: 1100,
+            easing: "easeOutExpo",
+            offset: '-=600'
+        }).add({
+            targets: '.ml8 .letters-left',
+            scale: [0, 1],
+            duration: 1200,
+            offset: '-=550'
+        }).add({
+            targets: '.ml8 .bang',
+            scale: [0, 1],
+            rotateZ: [45, 15],
+            duration: 1200,
+            offset: '-=1000'
+        });
 
     anime({
     targets: '.ml8 .circle-dark-dashed',
@@ -113,6 +127,7 @@ function hi(){
     easing: "linear",
     loop: true
     });
+})
 }
 
 
