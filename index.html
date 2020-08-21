@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <title> Open Palette </title>
         <link rel="stylesheet" href="styles.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
     </head>
 
@@ -19,7 +20,6 @@
     <div class="rect5"></div>
   </div>
     <a class="navbar-brand" href="#">Open Palette</a>
-   
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -46,14 +46,16 @@
 <div class="card-deck">
   <div class="sidenav">
     <br>
-    <button type="button" id= "font-family-btn" class="btn btn-outline-primary swing animated" font-family="Roboto">Font Family</button><br><br>
-    <button type="button" class="btn btn-outline-success" id="font-color-btn">Font Color</button><br><br>
-    <button type="button" id="color-btn" class="btn btn-outline-warning">Background</button><br><br>
-    <button type="button" id="save-btn" class="btn btn-outline-success">Save</button><br><br>
-    <button type="button" id="clr-btn" class="btn btn-outline-danger">Clear</button><br><br>
-    <div id="save-changes-button-space">
-    <button type="button" id="show-save-btn" class="btn btn-outline-danger">Show Saves</button><br><br>
-      
+
+    <h4>Menu</h4>
+    <br>
+    <button type="button" id= "font-family-btn" class="btn btn-primary" font-family="Roboto">Font Family</button><br>
+    <button type="button" id="font-color-btn" class="btn btn-warning" >Font Color</button><br>
+    <button type="button" id="color-btn" class="btn btn-info">Background</button><br><br>
+    <button type="button" id="save-btn" class="btn btn-success">Save</button><br>
+    <button type="button" id="clr-btn" class="btn btn-danger">Clear</button><br><br>
+    <button type="button" id="show-save-btn" class="btn btn-secondary">Show Saves</button><br><br>
+    <div id="save-changes-button-space">    
     </div>
     <br><br>
 
@@ -90,7 +92,7 @@
 
 <div class="card-deck"></div>
   <br><br>
-<div id="show-body" class="index-container"><button type="button" id="show-btn" class="btn btn-outline-danger">Clear</button>
+<div id="show-body" class="index-container">
 </div>
 </div>
 
@@ -103,7 +105,7 @@
       <span class="close">&times;</span>
     </div>
     <div class="modal-body">
-      <!-- <h1 class="ml8">
+      <h1 class="ml8">
       <span class="letters-container">
         <span class="letters letters-left">Hi</span>
         <span class="letters bang">!</span>
@@ -111,9 +113,11 @@
       <span class="circle circle-white" style="height:100px top"></span>
       <span class="circle circle-dark"></span>
       <span class="circle circle-container" ><span class="circle circle-dark-dashed"></span></span>
-      </h1> -->
+      </h1>
+      <!-- <h1 class="ml2">Sunny mornings</h1> -->
 
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script> -->
       <h1>Welcome to Open Palette!</h1>
       <h6>Get ready to have fun and see how easy it is to create different palettes!</h6><br>
       <p>Warning: fast blinking colors may potentially trigger seizures for people with photosensitive epilepsy. Viewer discretion is advised.</p>
@@ -129,10 +133,10 @@
 
 
 <!-- *********** Footer *********** -->
-<!-- <footer id="temp-id" class="footer fixed-bottom">
+<footer id="temp-id" class="footer fixed-bottom">
 
-<div class="footer-copyright text-center py-3"> YEET</div>
-</footer> -->
+<div class="footer text-center"> YEET</div>
+</footer>
 
 
 

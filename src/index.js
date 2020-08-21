@@ -246,7 +246,7 @@ function editedPalette(e){
   })
     .then((res) => res.json())
     .then((palette) => {
-      //const foundPalette = document.querySelectorAll(`div[data-id="${palette.id}"]`);
+      const foundPalette = document.querySelectorAll(`div[data-id="${palette.id}"]`);
       console.log(foundPalette[0].style.backgroundColor)
       //foundPalette[0].style.backgroundColor = palette.background_color
 
