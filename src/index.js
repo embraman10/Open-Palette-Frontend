@@ -253,14 +253,13 @@ function editedPalette(e){
     .then((res) => res.json())
     .then((palette) => {
       const foundPalette = document.querySelectorAll(`div[data-id="${palette.id}"]`);
-      console.log(foundPalette[0].style.backgroundColor)
-      //foundPalette[0].style.backgroundColor = palette.background_color
+      //console.log(foundPalette[0].children[0].style.color)
+      foundPalette[0].style.backgroundColor = palette.background_color
+      foundPalette[0].children[0].style.fontFamily = palette.font_family
+      foundPalette[0].children[0].style.color = palette.font_color
+      const newBtnSpace = document.getElementById("save-changes-button-space")
+      newBtnSpace.innerHTML = ""
 
-      // {"id":55,"background_color":"#47a3c6","font_color":"#f5eec6","font_family":"Impact","user":
-      // {"id":24,"name":"Kenny Penny","email":"nakesha@stokes.net","password":"password"}}
-      //foundPalette[0].innerText = dog.name
-      //foundPalette.children[1].innerText = dog.breed
-      //foundPalette.children[2].innerText = dog.sex
     });
 }
 
