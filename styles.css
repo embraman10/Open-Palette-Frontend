@@ -464,6 +464,7 @@ h1.ml8 {
   p {
     margin-top: 0;
     margin-bottom: 1rem;
+    
   }
   
   abbr[title],
@@ -5478,8 +5479,13 @@ h1.ml8 {
     -webkit-box-flex: 1;
         -ms-flex: 1 1 auto;
             flex: 1 1 auto;
+            
     min-height: 1px;
     padding: 1.25rem;
+    box-shadow: 1px 1px #7b7676;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    
   }
 
 
@@ -5492,6 +5498,7 @@ h1.ml8 {
     display: flex;
     justify-content: center;
     align-items: center;
+    
   }
 
 
@@ -5503,7 +5510,8 @@ h1.ml8 {
     height: 50rem;
     display: inline-grid;
     margin: 1rem 2rem;
-    box-shadow: 8px 12px #7b7676
+    box-shadow: 8px 12px #7b7676;
+    margin-left: 50px;
   }
   
   .card-title {
@@ -5542,8 +5550,8 @@ h1.ml8 {
     padding: 0.75rem 1.25rem;
     background-color: rgba(0, 0, 0, 0.03);
     border-top: 1px solid rgba(0, 0, 0, 0.125);
-    display: flex;
-    justify-content: center;
+    /* display: flex; */
+    /* justify-content: center; */
     align-items: center;
   }
   
@@ -6823,9 +6831,10 @@ h1.ml8 {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    top: 25%;
-    width: 50%;
-    left: 25%;
+            margin-top:auto;
+            margin-right:auto;
+            margin-bottom:0;
+            margin-left:auto;
     pointer-events: auto;
     background-color: #fff;
     background-clip: padding-box;
@@ -6833,6 +6842,16 @@ h1.ml8 {
     border-radius: 0.3rem;
     outline: 0;
     height: 500px;
+    text-align: center;
+    /* padding-top: 10px; */
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    overflow-wrap: normal;
   }
   
   .modal-backdrop {
@@ -6871,7 +6890,7 @@ h1.ml8 {
   }
   
   .modal-body {
-    position: relative;
+    position: static;
     -webkit-box-flex: 1;
         -ms-flex: 1 1 auto;
             flex: 1 1 auto;
@@ -6881,6 +6900,7 @@ h1.ml8 {
     text-align: center;
     height: auto;
     display: inline-block;
+
   }
   
   .modal-footer {

@@ -1,9 +1,8 @@
 
 function main(){
     popUp();
-    // specialBtn();
-    // hello();
-    hi();
+    hello();
+    openLogo();
     toggleShowCards();
 }
 
@@ -13,7 +12,7 @@ function popUp(){
     const modal = document.querySelector('#my-modal');
     document.addEventListener("DOMContentLoaded", function(event){
     //   console.log("hey i loaded")
-      modal.style.display = 'block'
+      modal.style.display = 'flex'
     })
     const closeBtn = document.querySelector('.close');
     closeBtn.addEventListener('click', function(){
@@ -24,6 +23,7 @@ function popUp(){
       modal.style.display = 'none'
   })
 };
+
 
 
 ///////// ***** Show/Hide Show Cards ***** /////////
@@ -48,33 +48,28 @@ function toggleShowCards(){
 
 
 
-// function hello(){
+///////// ***** Greeting Popup***** /////////
+function hello(){
 
-//     var textWrapper = document.querySelector('.ml2');
-//     textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+    var textWrapper = document.querySelector('.ml2');
+    textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
     
-//     anime.timeline({loop: true})
-//       .add({
-//         targets: '.ml2 .letter',
-//         scale: [4,1],
-//         opacity: [0,1],
-//         translateZ: 0,
-//         easing: "easeOutExpo",
-//         duration: 950,
-//         delay: (el, i) => 70*i
-//       }).add({
-//         targets: '.ml2',
-//         opacity: 0,
-//         duration: 1000,
-//         easing: "easeOutExpo",
-//         delay: 1000
-//       });
-    
-// }
+    anime.timeline({loop: false})
+      .add({
+        targets: '.ml2 .letter',
+        scale: [4,1],
+        opacity: [0,1],
+        translateZ: 0,
+        easing: "easeOutExpo",
+        duration: 950,
+        delay: (el, i) => 70*i
+    });  
+}
 
 
 
-function hi(){
+///////// ***** Open Palette Header Logo ***** /////////
+function openLogo(){
     document.addEventListener("DOMContentLoaded", function(event){
     anime.timeline({loop: false})
         .add({
@@ -109,14 +104,14 @@ function hi(){
             offset: '-=1000'
         });
 
-    anime({
-    targets: '.ml8 .circle-dark-dashed',
-    rotateZ: 360,
-    duration: 8000,
-    easing: "linear",
-    loop: true
-    });
-})
+        anime({
+        targets: '.ml8 .circle-dark-dashed',
+        rotateZ: 360,
+        duration: 8000,
+        easing: "linear",
+        loop: true
+        });
+    })
 }
 
 
