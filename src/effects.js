@@ -8,6 +8,7 @@ function main(){
 }
 
 
+///////// ***** Welcome Popup ***** /////////
 function popUp(){
     const modal = document.querySelector('#my-modal');
     document.addEventListener("DOMContentLoaded", function(event){
@@ -25,40 +26,26 @@ function popUp(){
 };
 
 
-
+///////// ***** Show/Hide Show Cards ***** /////////
 function toggleShowCards(){
     let btn = document.getElementById("show-save-btn")
-    console.log("btn")
     let showContainer = document.getElementById("show-body");
     let showCard = true;
+    document.addEventListener("DOMContentLoaded", function(event){
+        //   console.log("hey i loaded")
+          showContainer.style.display = 'none'
+        })
     btn.addEventListener("click", function(){
         showCard = !showCard;
         if (showCard) {
-            showContainer.style.display = "flex"
-        } else  {
             showContainer.style.display = "none"
+        } else  {
+            showContainer.style.display = "flex"
         } 
 
     })
 }
 
-
-
-// function specialBtn(){
-//     const element = document.getElementById('font-family-btn')
-//     element.addEventListener('click', function(event){
-
-//         element.add('swing animated');
-//         element.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(e){
-       
-//          // trick to execute the animation again
-//           $(e.target).removeClass('swing animated');
-        
-//         });
-
-//         console.log("hey i wiggled")
-//       });
-// };
 
 
 // function hello(){
