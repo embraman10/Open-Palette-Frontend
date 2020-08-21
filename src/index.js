@@ -1,3 +1,4 @@
+///////// ***** Variables ***** /////////
 let colorHexes = [];
 let fontFamilies = [
   "Arial",
@@ -13,8 +14,9 @@ let fontFamilies = [
 ];
 document.addEventListener("click", handleSave);
 
+
+///////// ***** Initializer Function ***** /////////
 function main() {
-  // popUp();
   fetchColors();
   fetchFontColors();
   fetchFonts();
@@ -57,6 +59,7 @@ function fetchColors() {
     });
 }
 
+
 ///////// ***** Change Font Color ***** /////////
 function fetchFontColors() {
   fetch("http://localhost:3000/background_color_changers")
@@ -91,6 +94,7 @@ function fetchFontColors() {
     });
 }
 
+
 ///////// ***** Change Font Family ***** /////////
 function fetchFonts() {
   const btn = document.getElementById("font-family-btn");
@@ -119,8 +123,8 @@ function fetchFonts() {
   });
 }
 
-///////// ***** Saving Palette ***** /////////
 
+///////// ***** Calls Saved Palettes ***** /////////
 function fetchPalettes() {
   fetch("http://localhost:3000/user_palettes")
     .then((resp) => resp.json())
@@ -129,34 +133,37 @@ function fetchPalettes() {
     });
 }
 
+
+///////// ***** Render Show Palettes ***** /////////
 function renderPalettes(palette) {
   const showPanel = document.getElementById("show-body");
-  //console.log(palette)
-  showPanel.innerHTML += `  
 
+  showPanel.innerHTML += `  
   <div class="card-deck mb-3 text-center">
-  <div class="card mb-4 shadow-sm">
-  <div class="card-body" data-id="${palette.id}" style="background-color: ${palette.background_color}">
-                            <h2 data-id="${palette.id}" style="font-family: ${palette.font_family}; color: ${palette.font_color}">${palette.user.name}</h2>
-                            <div>
-                            <h2> background color : <span id="${palette.id}" class="color">${palette.background_color}</span></h2>
-                            </div>
-                            <div>
-                            <h2> font color : <span class="font-color">${palette.font_color}</span></h2>
-                            </div>
-                            <div>
-                            <h2> font : <span class="font-family">${palette.font_family}</span></h2>
-                            </div>
-                            <br>
-                            <button type="button" data-id="${palette.id}" id="edit-btn" class="btn btn-warning">Edit this Card</button><br><br>
-                            <button type="button" data-id="${palette.id}" id="delete-btn" class="btn btn-danger">Delete</button>
-                            </div><div class="card-footer">
-                            <form id='palette-form' class="padding margin border-round border-grey">
-                              <input type="text" name="bgColor" placeholder="Background Color" value="" />
-                              <input type="text" name="fontColor" placeholder="Font Color" value="" />
-                              <input type="text" name="font" placeholder="Font" value="" />
-                            </form>
-                          </div></div></div>`;
+    <div class="card mb-4 shadow-sm">
+
+      <div class="card-body" data-id="${palette.id}" style="background-color: ${palette.background_color}">
+        <h2 data-id="${palette.id}" style="font-family: ${palette.font_family}; color: ${palette.font_color}">${palette.user.name}</h2>
+      <div>
+        <h2> background color : <span id="${palette.id}" class="color">${palette.background_color}</span></h2>
+      </div>
+      <div>
+        <h2> font color : <span class="font-color">${palette.font_color}</span></h2>
+      </div>
+      <div>
+        <h2> font : <span class="font-family">${palette.font_family}</span></h2>
+      </div><br>
+      <button type="button" data-id="${palette.id}" id="edit-btn" class="btn btn-warning">Edit this Card</button><br><br>
+      <button type="button" data-id="${palette.id}" id="delete-btn" class="btn btn-danger">Delete</button>
+      
+      </div><div class="card-footer">
+        <form id='palette-form' class="padding margin border-round border-grey">
+          <input type="text" name="bgColor" placeholder="Background Color" value="" />
+          <input type="text" name="fontColor" placeholder="Font Color" value="" />
+          <input type="text" name="font" placeholder="Font" value="" />
+        </form>
+        </div></div></div>`;
+
   const footer = document.getElementById("show-body");
   footer.addEventListener("click", handleCrud);
 
@@ -166,6 +173,8 @@ function renderPalettes(palette) {
   })
 }
 
+
+///////// ***** Edit/Delete Show Card Functions ***** /////////
 function handleCrud(e) {
   e.preventDefault();
   //console.log(e.target.dataset.id)
@@ -177,10 +186,8 @@ function handleCrud(e) {
     deletePalette(e);
   }
 
-  // function savePalette(e){
 
-  // }
-
+  ///////// ***** Calling Saved Palette for Editing ***** /////////
   function editPalette(e) {
     //console.log(e.target.parentNode)
     const paletteForm = document.getElementById("palette-form");
@@ -190,7 +197,6 @@ function handleCrud(e) {
     const h2Font = document.getElementById("tester");
     const newBtnSpace = document.getElementById("save-changes-button-space")
 
-    //console.log(id)
     fetch(`http://localhost:3000/user_palettes/${paletteId}`)
       .then((res) => res.json())
       .then((palette) => {
@@ -206,6 +212,8 @@ function handleCrud(e) {
       });
   }
 
+
+  ///////// ***** Delete Saved Palette ***** /////////
   function deletePalette(e) {
     const paletteId = e.target.dataset.id;
     console.log(e.target.dataset.id);
@@ -219,6 +227,8 @@ function handleCrud(e) {
   }
 }
 
+
+///////// ***** Saves Edit/Delete Show Palettes ***** /////////
 function handleSave(e) {
   e.preventDefault();
   if (e.target.id === "save-btn") {
@@ -231,6 +241,7 @@ function handleSave(e) {
 }
 
 
+///////// ***** Patching Edited Show Palette ***** /////////
 function editedPalette(e){
   e.preventDefault()
   const paletteId = e.target.dataset.id;
@@ -249,21 +260,17 @@ function editedPalette(e){
       "Content-Type": "application/json",
     },
     body: JSON.stringify(newPalette),
-  })
+    })
     .then((res) => res.json())
     .then((palette) => {
       const foundPalette = document.querySelectorAll(`div[data-id="${palette.id}"]`);
       console.log(foundPalette[0].style.backgroundColor)
       //foundPalette[0].style.backgroundColor = palette.background_color
-
-      // {"id":55,"background_color":"#47a3c6","font_color":"#f5eec6","font_family":"Impact","user":
-      // {"id":24,"name":"Kenny Penny","email":"nakesha@stokes.net","password":"password"}}
-      //foundPalette[0].innerText = dog.name
-      //foundPalette.children[1].innerText = dog.breed
-      //foundPalette.children[2].innerText = dog.sex
     });
 }
 
+
+///////// ***** Saves Created Palette ***** /////////
 function submitPalette(e) {
   const paletteForm = document.getElementById("palette-form");
   let newPalette = {
