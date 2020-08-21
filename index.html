@@ -38,8 +38,8 @@
       </head>
       <body>
         <form class="form-check form-check-inline">
-          <input style="border-radius: 25px;" type="text" id="username" placeholder="Choose Username">
-          <input style="border-radius: 25px;" type="password" id="password" placeholer="Choose Password">
+          <input style="border-radius: 5px;" type="text" id="username" placeholder="Choose Username">
+          <input style="border-radius: 5px; margin-left: 10px; margin-right: 10px;" type="password" id="password" placeholer="Choose Password">
           <button class="btn btn-secondary btn-sm" type="button" onclick="getInfo()">Log in</button>
         </form>
     
@@ -51,9 +51,8 @@
 
 
 
-  <div id="save-alert" class="alert alert-dismissible alert-success">
-    <button id="save-btn-close" type="button" class="close" data-dismiss="alert">&times;</button>
-    <strong>Success!</strong> You have saved your palette! Check out your 'show saves' for more<br></div>
+  <div id="response">
+  </div>
 
 
     
@@ -69,14 +68,14 @@
     <br>
 
 
-    <h4>Menu</h4>
+    <h4 style="font-family: Helvetica Neue; color:adb5bd">Menu</h4>
     <br>
     <button type="button" id= "font-family-btn" class="btn btn-primary" font-family="Roboto">Font Family</button><br>
     <button type="button" id="font-color-btn" class="btn btn-warning" >Font Color</button><br>
     <button type="button" id="color-btn" class="btn btn-info">Background</button><br><br>
     <button type="button" id="save-btn" class="btn btn-success">Save</button><br>
     <button type="button" id="clr-btn" class="btn btn-danger">Clear</button><br><br>
-    <button type="button" id="show-save-btn" class="btn btn-secondary alert">Show Saves</button><br><br>
+    <button type="button" id="show-save-btn" class="btn btn-secondary">Show Saves</button><br><br>
     <div id="save-changes-button-space">    
     </div>
     
@@ -123,11 +122,13 @@
     <div class="modal-body">
       <h2 class="ml2">Welcome to Open Palette!</h2>
       <br>
-      <h6>Get ready to have fun and see how easy it is to create different palettes!</h6><br>
-      
+      <h5>Get ready to have fun and see how easy it is to create different palettes!</h5><br>
+  
+
+
     </div>
     <div class="modal-footer">
-      <p>Warning: fast blinking colors may potentially trigger seizures for people with photosensitive epilepsy. Viewer discretion is advised.</p>
+      <h6>Warning: fast blinking colors may potentially trigger seizures for people with photosensitive epilepsy. Viewer discretion is advised.</h6><br>
       <button type="button" id= "lets-go" class="btn btn-primary" font-family="Roboto">Let's Go!</button><br>
     </div>
   </div>
