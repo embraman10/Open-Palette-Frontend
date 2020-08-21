@@ -32,10 +32,15 @@
       </ul>
       <br>
       <form class="form-inline my-2 my-lg-0">
-        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Logout</button>
+        <!-- <button class="btn btn-secondary my-2 my-sm-0" type="submit">Logout</button> -->
       </form>
     </div>
   </nav>
+
+  <div id="save-alert" class="alert alert-dismissible alert-success">
+    <button id="save-btn-close" type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Success!</strong> You have saved your palette! Check out your 'show saves' for more<br></div>
+    
 </header>
 
 
@@ -46,14 +51,17 @@
 <div class="card-deck">
   <div class="sidenav">
     <br>
-    <button type="button" id= "font-family-btn" class="btn btn-outline-primary swing animated" font-family="Roboto">Font Family</button><br><br>
-    <button type="button" class="btn btn-outline-success" id="font-color-btn">Font Color</button><br><br>
-    <button type="button" id="color-btn" class="btn btn-outline-warning">Background</button><br><br>
-    <button type="button" id="save-btn" class="btn btn-outline-success">Save New Card</button><br><br>
-    <button type="button" id="clr-btn" class="btn btn-outline-danger">Clear</button><br><br>
-    <div id="save-changes-button-space">
-    <button type="button" id="show-save-btn" class="btn btn-outline-danger">Show Saves</button><br><br>
-      
+
+
+    <h4>Menu</h4>
+    <br>
+    <button type="button" id= "font-family-btn" class="btn btn-primary" font-family="Roboto">Font Family</button><br>
+    <button type="button" id="font-color-btn" class="btn btn-warning" >Font Color</button><br>
+    <button type="button" id="color-btn" class="btn btn-info">Background</button><br><br>
+    <button type="button" id="save-btn" class="btn btn-success">Save</button><br>
+    <button type="button" id="clr-btn" class="btn btn-danger">Clear</button><br><br>
+    <button type="button" id="show-save-btn" class="btn btn-secondary alert">Show Saves</button><br><br>
+    <div id="save-changes-button-space">    
     </div>
     <br><br>
   </div>
@@ -91,7 +99,7 @@
 <div id="my-modal" class="modal">
   <div class="modal-content">
     <div class="modal-header">
-      <span class="close">&times;</span>
+      <span id= "pop-close-btn" class="close">&times;</span>
     </div>
     <div class="modal-body">
       <h2 class="ml2">Welcome to Open Palette!</h2>
