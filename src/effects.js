@@ -5,6 +5,7 @@ function main(){
     openLogo();
     toggleShowCards();
     saveSuccess();
+    // deletePal();
 }
 
 
@@ -140,6 +141,20 @@ function openLogo(){
         });
     })
 }
+
+// function deletePal(){
+//     const btn = document.getElementById("delete-btn");
+//     const card = document.getElementById()
+//     btn.addEventListener("click", function(event){
+//         event.animate({
+//             padding: "0px",
+//             'margin-left':'-10px',
+//             'font-size': "0px"
+//         }, 500, function(e) {
+//             e.remove
+//         })
+//     });
+// }
 
 
 main()
