@@ -150,7 +150,13 @@ function renderPalettes(palette) {
                             <br>
                             <button type="button" data-id="${palette.id}" id="edit-btn" class="btn btn-warning">Edit this Card</button><br><br>
                             <button type="button" data-id="${palette.id}" id="delete-btn" class="btn btn-danger">Delete</button>
-                            </div></div></div>`;
+                            </div><div class="card-footer">
+                            <form id='palette-form' class="padding margin border-round border-grey">
+                              <input type="text" name="bgColor" placeholder="Background Color" value="" />
+                              <input type="text" name="fontColor" placeholder="Font Color" value="" />
+                              <input type="text" name="font" placeholder="Font" value="" />
+                            </form>
+                          </div></div></div>`;
   const footer = document.getElementById("show-body");
   footer.addEventListener("click", handleCrud);
 
