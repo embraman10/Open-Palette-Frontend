@@ -164,21 +164,7 @@ function renderPalettes(palette) {
   })
 }
 
-{/* <div class="card-body" data-id="${palette.id}" style="background-color: ${palette.background_color}">
-<h2 data-id="${palette.id}" style="font-family: ${palette.font_family}; color: ${palette.font_color}">${palette.user.name}</h2>
-<div>
-<h2> background color : <span id="${palette.id}" class="color">${palette.background_color}</span></h2>
-</div>
-<div>
-<h2> font color : <span class="font-color">${palette.font_color}</span></h2>
-</div>
-<div>
-<h2> font : <span class="font-family">${palette.font_family}</span></h2>
-</div><br>
-<button type="button" data-id="${palette.id}" id="edit-btn" class="btn btn-warning">Edit</button><br><br>
-<button type="button" data-id="${palette.id}" id="delete-btn" class="btn btn-danger">Delete</button>
 
-</div>`; */}
 
 ///////// ***** Edit/Delete Show Card Functions ***** /////////
 function handleCrud(e) {

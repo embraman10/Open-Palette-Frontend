@@ -29,28 +29,47 @@ function popUp(){
 
 ///////// ***** Save Success Popup ***** /////////
 function saveSuccess(){
-    let saveBtn = document.getElementById("save-btn");
-    let saveBar = document.getElementById("save-alert");
-    const closeBtn = document.getElementById('save-btn-close');
-    let showSave = true;
-    
-    document.addEventListener("DOMContentLoaded", function(event){
-          console.log("hey i loaded")
-          saveBar.style.display = 'none'
-        })
 
-    saveBtn.addEventListener('click', function(){
-        showSave = !showSave
-        if (showSave){
-            saveBar.style.display = "none"
-        } else {
-            saveBar.style.display = "block"
-        }
-    })
-    closeBtn.addEventListener('click', function(){
-      saveBar.style.display = 'none'
-    });
-    
+    $("#save-btn").click(function(){
+        $("#response").animate({
+             height: '+=72px'
+         }, 300);
+       
+       $('<div class="alert alert-success">' +
+         '<button type="button" class="close" data-dismiss="alert">' +
+         '&times;</button>Success! You have saved your palette! Check out your saved palettes!</div>').hide().appendTo('#response').fadeIn(1000);
+       
+        $(".alert").delay(3000).fadeOut(
+       "normal",
+       function(){
+         $(this).remove();
+       });
+       
+       
+       $("#response").delay(4000).animate({
+             height: '-=72px'
+         }, 300);
+     
+     });
+     
+     $("#btn-error").click(function(){
+       $("#response").animate({
+             height: '+=72px'
+         }, 300);
+        $('<div class="alert alert-danger">' +
+                 '<button type="button" class="close" data-dismiss="alert">' +
+                 '&times;</button>Failed</div>').hide().appendTo('#response').fadeIn(1000);
+       
+       $(".alert").delay(3000).fadeOut(
+       "normal",
+       function(){
+         $(this).remove();
+       });
+       
+        $("#response").delay(4000).animate({
+             height: '-=72px'
+         }, 300);
+     });    
 }
 
 
