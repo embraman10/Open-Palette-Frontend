@@ -32,15 +32,30 @@
         </li>
       </ul>
       <br>
-      <form class="form-inline my-2 my-lg-0">
-        <!-- <button class="btn btn-secondary my-2 my-sm-0" type="submit">Logout</button> -->
-      </form>
+      <head>	
+        <title>JavaScript Simple Login System</title>
+        <link rel="shortcut icon" href="favicon.ico">
+      </head>
+      <body>
+        <form class="form-check form-check-inline">
+          <input style="border-radius: 25px;" type="text" id="username" placeholder="Choose Username">
+          <input style="border-radius: 25px;" type="password" id="password" placeholer="Choose Password">
+          <button class="btn btn-secondary btn-sm" type="button" onclick="getInfo()">Log in</button>
+        </form>
+    
+        <!-- <script src="./src/index.js" defer></script> -->
+      </body>
     </div>
+    
   </nav>
+
+
 
   <div id="save-alert" class="alert alert-dismissible alert-success">
     <button id="save-btn-close" type="button" class="close" data-dismiss="alert">&times;</button>
     <strong>Success!</strong> You have saved your palette! Check out your 'show saves' for more<br></div>
+
+
     
 </header>
 
@@ -64,6 +79,7 @@
     <button type="button" id="show-save-btn" class="btn btn-secondary alert">Show Saves</button><br><br>
     <div id="save-changes-button-space">    
     </div>
+    
     <br><br>
   </div>
 
