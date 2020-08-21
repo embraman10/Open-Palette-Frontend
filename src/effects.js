@@ -65,6 +65,8 @@ function toggleShowCards(){
         })
     btn.addEventListener("click", function(){
         showCard = !showCard;
+        const cardInner = document.getElementById("tester")
+        cardInner.innerText = "Hello there good looking"
         if (showCard) {
             showContainer.style.display = "none"
         } else  {
