@@ -264,8 +264,14 @@ function editedPalette(e){
     .then((res) => res.json())
     .then((palette) => {
       const foundPalette = document.querySelectorAll(`div[data-id="${palette.id}"]`);
-      console.log(foundPalette[0].style.backgroundColor)
-      //foundPalette[0].style.backgroundColor = palette.background_color
+
+      //console.log(foundPalette[0].children[0].style.color)
+      foundPalette[0].style.backgroundColor = palette.background_color
+      foundPalette[0].children[0].style.fontFamily = palette.font_family
+      foundPalette[0].children[0].style.color = palette.font_color
+      const newBtnSpace = document.getElementById("save-changes-button-space")
+      newBtnSpace.innerHTML = ""
+
     });
 }
 
