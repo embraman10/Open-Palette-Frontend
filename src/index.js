@@ -139,30 +139,21 @@ function renderPalettes(palette) {
   const showPanel = document.getElementById("show-body");
 
   showPanel.innerHTML += `  
-  <div class="card-deck mb-3 text-center">
-    <div class="card mb-4 shadow-sm">
-
       <div class="card-body" data-id="${palette.id}" style="background-color: ${palette.background_color}">
-        <h2 data-id="${palette.id}" style="font-family: ${palette.font_family}; color: ${palette.font_color}">${palette.user.name}</h2>
+        <h1 data-id="${palette.id}" style="font-family: ${palette.font_family}; color: ${palette.font_color}">Hello there good looking</h1>
       <div>
-        <h2> background color : <span id="${palette.id}" class="color">${palette.background_color}</span></h2>
+        
       </div>
       <div>
-        <h2> font color : <span class="font-color">${palette.font_color}</span></h2>
+        
       </div>
       <div>
-        <h2> font : <span class="font-family">${palette.font_family}</span></h2>
+    
       </div><br>
-      <button type="button" data-id="${palette.id}" id="edit-btn" class="btn btn-warning">Edit this Card</button><br><br>
+      <button type="button" data-id="${palette.id}" id="edit-btn" class="btn btn-warning ">Edit</button>
       <button type="button" data-id="${palette.id}" id="delete-btn" class="btn btn-danger">Delete</button>
       
-      </div><div class="card-footer">
-        <form id='palette-form' class="padding margin border-round border-grey">
-          <input type="text" name="bgColor" placeholder="Background Color" value="" />
-          <input type="text" name="fontColor" placeholder="Font Color" value="" />
-          <input type="text" name="font" placeholder="Font" value="" />
-        </form>
-        </div></div></div>`;
+      </div>`;
 
   const footer = document.getElementById("show-body");
   footer.addEventListener("click", handleCrud);
@@ -173,6 +164,21 @@ function renderPalettes(palette) {
   })
 }
 
+{/* <div class="card-body" data-id="${palette.id}" style="background-color: ${palette.background_color}">
+<h2 data-id="${palette.id}" style="font-family: ${palette.font_family}; color: ${palette.font_color}">${palette.user.name}</h2>
+<div>
+<h2> background color : <span id="${palette.id}" class="color">${palette.background_color}</span></h2>
+</div>
+<div>
+<h2> font color : <span class="font-color">${palette.font_color}</span></h2>
+</div>
+<div>
+<h2> font : <span class="font-family">${palette.font_family}</span></h2>
+</div><br>
+<button type="button" data-id="${palette.id}" id="edit-btn" class="btn btn-warning">Edit</button><br><br>
+<button type="button" data-id="${palette.id}" id="delete-btn" class="btn btn-danger">Delete</button>
+
+</div>`; */}
 
 ///////// ***** Edit/Delete Show Card Functions ***** /////////
 function handleCrud(e) {
