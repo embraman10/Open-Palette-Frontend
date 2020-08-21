@@ -4,6 +4,7 @@ function main(){
     hello();
     openLogo();
     toggleShowCards();
+    saveSuccess();
 }
 
 
@@ -14,7 +15,7 @@ function popUp(){
     //   console.log("hey i loaded")
       modal.style.display = 'flex'
     })
-    const closeBtn = document.querySelector('.close');
+    const closeBtn = document.getElementById('pop-close-btn');
     closeBtn.addEventListener('click', function(){
       modal.style.display = 'none'
     });
@@ -24,6 +25,32 @@ function popUp(){
   })
 };
 
+
+///////// ***** Save Success Popup ***** /////////
+function saveSuccess(){
+    let saveBtn = document.getElementById("save-btn");
+    let saveBar = document.getElementById("save-alert");
+    const closeBtn = document.getElementById('save-btn-close');
+    let showSave = true;
+    
+    document.addEventListener("DOMContentLoaded", function(event){
+          console.log("hey i loaded")
+          saveBar.style.display = 'none'
+        })
+
+    saveBtn.addEventListener('click', function(){
+        showSave = !showSave
+        if (showSave){
+            saveBar.style.display = "none"
+        } else {
+            saveBar.style.display = "block"
+        }
+    })
+    closeBtn.addEventListener('click', function(){
+      saveBar.style.display = 'none'
+    });
+    
+}
 
 
 ///////// ***** Show/Hide Show Cards ***** /////////
@@ -48,7 +75,7 @@ function toggleShowCards(){
 
 
 
-///////// ***** Greeting Popup***** /////////
+///////// ***** Greeting Popup Text Animation***** /////////
 function hello(){
 
     var textWrapper = document.querySelector('.ml2');
